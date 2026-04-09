@@ -23,6 +23,11 @@
     }
   ],
   "rewrites": [
-    { "source": "/london-fire-door-inspections", "destination": "/seo/london.html" }
+    { "source": "/london-fire-door-inspections", "destination": "/seo/london.html" },
+    { "source": "/buckinghamshire-fire-door-inspections", "destination": "/seo/buckinghamshire.html" },
+    { "source": "/berkshire-fire-door-inspections", "destination": "/seo/berkshire.html" },
+    { "source": "/reading-fire-door-inspections", "destination": "/seo/reading.html" },
+    { "source": "/slough-fire-door-inspections", "destination": "/seo/slough.html" },
+    { "source": "/oxford-fire-door-inspections", "destination": "/seo/oxford.html" }
   ]
 }
