@@ -1,0 +1,11 @@
+{
+  "name": "de-fire-compliance",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.0",
+    "resend": "^3.5.0"
+  }
+}

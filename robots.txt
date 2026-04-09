@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://defirecompliance.co.uk/sitemap.xml

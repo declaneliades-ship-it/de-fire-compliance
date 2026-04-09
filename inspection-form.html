@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fire Door Inspection Form — DE Fire Compliance</title>
+    <style>
+        /* Reset */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        @page {
+            size: A4 portrait;
+            margin: 12mm 10mm 12mm 10mm;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 8.5pt;
+            color: #1a1a1a;
+            line-height: 1.4;
+            background: #f0f0f0;
+        }
+
+        /* Each .page is an A4 sheet */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 10mm auto;
+            padding: 10mm;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        @media print {
+            body { background: #fff; }
+            .page {
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+            .page:last-child { page-break-after: auto; }
+            .no-print { display: none !important; }
+        }
+
+        /* --- Header --- */
+        .form-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 3px solid #b91c1c;
+            padding-bottom: 6mm;
+            margin-bottom: 5mm;
+        }
+
+        .brand h1 {
+            font-size: 16pt;
+            font-weight: 700;
+            color: #b91c1c;
+            letter-spacing: -0.3px;
+        }
+
+        .brand p {
+            font-size: 7.5pt;
+            color: #666;
+            margin-top: 1mm;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 7.5pt;
+            color: #666;
+        }
+
+        .header-right strong {
+            display: block;
+            font-size: 10pt;
+            color: #1a1a1a;
+        }
+
+        /* --- Section titles --- */
+        .section-title {
+            background: #b91c1c;
+            color: #fff;
+            padding: 2mm 3mm;
+            font-size: 9pt;
+            font-weight: 700;
+            margin: 4mm 0 2mm;
+            letter-spacing: 0.3px;
+        }
+
+        .section-title-dark {
+            background: #111827;
+        }
+
+        /* --- Info table (site details) --- */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 3mm;
+        }
+
+        .info-table td {
+            border: 0.5px solid #ccc;
+            padding: 2mm 3mm;
+            vertical-align: top;
+        }
+
+        .info-table .label {
+            width: 22%;
+            font-weight: 600;
+            font-size: 7.5pt;
+            color: #444;
+            background: #f7f7f7;
+        }
+
+        .info-table .value {
+            width: 28%;
+            min-height: 6mm;
+        }
+
+        /* --- Door inspection table --- */
+        .door-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f1f5f9;
+            border: 1px solid #ccc;
+            padding: 2mm 3mm;
+            margin-top: 4mm;
+            margin-bottom: 0;
+        }
+
+        .door-header h3 {
+            font-size: 9pt;
+            font-weight: 700;
+        }
+
+        .door-ref {
+            display: flex;
+            gap: 4mm;
+            align-items: center;
+            font-size: 8pt;
+        }
+
+        .door-ref label {
+            font-weight: 600;
+            color: #444;
+        }
+
+        .field-line {
+            border-bottom: 1px solid #999;
+            width: 35mm;
+            display: inline-block;
+        }
+
+        .field-line-long {
+            width: 55mm;
+        }
+
+        .check-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .check-table th {
+            background: #e5e7eb;
+            font-size: 7pt;
+            font-weight: 700;
+            padding: 1.5mm 2mm;
+            text-align: center;
+            border: 0.5px solid #ccc;
+            color: #444;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .check-table th:first-child {
+            text-align: left;
+            width: 38%;
+        }
+
+        .check-table td {
+            border: 0.5px solid #ccc;
+            padding: 1.8mm 2mm;
+            font-size: 8pt;
+            vertical-align: middle;
+        }
+
+        .check-table td:first-child {
+            font-weight: 500;
+        }
+
+        .check-table .center {
+            text-align: center;
+        }
+
+        /* Checkbox circles for ticking */
+        .tick-box {
+            width: 4mm;
+            height: 4mm;
+            border: 0.8px solid #666;
+            border-radius: 1px;
+            display: inline-block;
+        }
+
+        /* Severity row */
+        .severity-row td {
+            background: #fef2f2;
+        }
+
+        .severity-labels {
+            display: flex;
+            gap: 3mm;
+            justify-content: center;
+            font-size: 7pt;
+            font-weight: 600;
+        }
+
+        .severity-labels span {
+            display: flex;
+            align-items: center;
+            gap: 1mm;
+        }
+
+        .sev-c { color: #b91c1c; }
+        .sev-h { color: #d97706; }
+        .sev-m { color: #2563eb; }
+        .sev-l { color: #059669; }
+
+        /* Notes area */
+        .notes-area {
+            border: 0.5px solid #ccc;
+            padding: 2mm 3mm;
+            min-height: 14mm;
+            font-size: 7.5pt;
+            color: #999;
+        }
+
+        .photo-refs {
+            border: 0.5px solid #ccc;
+            border-top: none;
+            padding: 2mm 3mm;
+            min-height: 7mm;
+            font-size: 7.5pt;
+            color: #999;
+        }
+
+        /* --- Summary / Sign-off (page 2) --- */
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 4mm;
+        }
+
+        .summary-table th,
+        .summary-table td {
+            border: 0.5px solid #ccc;
+            padding: 2mm 3mm;
+            font-size: 8pt;
+        }
+
+        .summary-table th {
+            background: #e5e7eb;
+            font-weight: 700;
+            text-align: left;
+            font-size: 7.5pt;
+            text-transform: uppercase;
+            color: #444;
+        }
+
+        .sign-off {
+            margin-top: 6mm;
+        }
+
+        .sign-off-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4mm;
+        }
+
+        .sign-box {
+            border: 0.5px solid #ccc;
+            padding: 3mm;
+        }
+
+        .sign-box label {
+            display: block;
+            font-size: 7.5pt;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 1mm;
+        }
+
+        .sign-line {
+            border-bottom: 1px solid #999;
+            height: 10mm;
+            margin-bottom: 2mm;
+        }
+
+        .sign-date {
+            font-size: 7pt;
+            color: #666;
+        }
+
+        /* --- Footer --- */
+        .form-footer {
+            margin-top: auto;
+            padding-top: 3mm;
+            border-top: 1px solid #ddd;
+            font-size: 6.5pt;
+            color: #999;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* --- Print button --- */
+        .print-bar {
+            text-align: center;
+            padding: 15px;
+            background: #111827;
+        }
+
+        .print-bar button {
+            background: #b91c1c;
+            color: #fff;
+            border: none;
+            padding: 12px 32px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .print-bar button:hover {
+            background: #991b1b;
+        }
+
+        .print-bar p {
+            color: #999;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Print controls -->
+    <div class="print-bar no-print">
+        <button onclick="window.print()">Print Inspection Forms</button>
+        <p>Prints 2 pages: Page 1 = Site details + 3 door inspections. Page 2 = 3 more doors + summary &amp; sign-off.<br>Print multiple copies for larger sites.</p>
+    </div>
+
+    <!-- ==================== PAGE 1 ==================== -->
+    <div class="page">
+
+        <!-- Header -->
+        <div class="form-header">
+            <div class="brand">
+                <h1>&#128737; DE Fire Compliance</h1>
+                <p>Fire Door Inspection &amp; Compliance Reporting</p>
+            </div>
+            <div class="header-right">
+                <strong>Fire Door Inspection Form</strong>
+                info@defirecompliance.co.uk<br>
+                07500 858 634
+            </div>
+        </div>
+
+        <!-- Site Details -->
+        <div class="section-title">Site &amp; Client Details</div>
+        <table class="info-table">
+            <tr>
+                <td class="label">Client / Organisation</td>
+                <td class="value"></td>
+                <td class="label">Site Address</td>
+                <td class="value"></td>
+            </tr>
+            <tr>
+                <td class="label">Contact Name</td>
+                <td class="value"></td>
+                <td class="label">Contact Phone / Email</td>
+                <td class="value"></td>
+            </tr>
+            <tr>
+                <td class="label">Inspection Date</td>
+                <td class="value"></td>
+                <td class="label">Inspector Name</td>
+                <td class="value"></td>
+            </tr>
+            <tr>
+                <td class="label">Sector</td>
+                <td class="value" style="font-size:7pt; color:#666;">Care Home / Social Housing / Commercial / School / Healthcare / Other</td>
+                <td class="label">Page ___ of ___</td>
+                <td class="value"></td>
+            </tr>
+        </table>
+
+        <!-- Door 1 -->
+        <div class="door-header">
+            <h3>Door 1</h3>
+            <div class="door-ref">
+                <span><label>Door Ref:</label> <span class="field-line"></span></span>
+                <span><label>Location:</label> <span class="field-line field-line-long"></span></span>
+            </div>
+        </div>
+        <table class="check-table">
+            <thead>
+                <tr>
+                    <th>Check Item</th>
+                    <th>Pass</th>
+                    <th>Fail</th>
+                    <th>N/A</th>
+                    <th>Defect Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Certification / labelling present</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Leaf-to-frame gap — top (2–4mm)</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Leaf-to-frame gap — sides (2–4mm)</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Threshold gap (max 8mm or as spec)</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Intumescent strips — present &amp; intact</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Cold smoke seals — present &amp; intact</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Door closer — fitted &amp; operating correctly</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Hinges — correct type, qty &amp; condition (3 min)</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Glazing — correct spec, beading &amp; seals</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Signage — fire door keep shut / locked</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Leaf condition — no damage, holes, splits</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Frame condition — secure, undamaged</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Holds to latch / locks correctly</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>No unauthorised modifications</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr class="severity-row">
+                    <td><strong>Overall Severity Rating</strong></td>
+                    <td colspan="4">
+                        <div class="severity-labels">
+                            <span class="sev-c"><span class="tick-box"></span> Critical</span>
+                            <span class="sev-h"><span class="tick-box"></span> High</span>
+                            <span class="sev-m"><span class="tick-box"></span> Medium</span>
+                            <span class="sev-l"><span class="tick-box"></span> Low</span>
+                            <span><span class="tick-box"></span> Pass</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="notes-area">Additional notes / remedial recommendations:</div>
+        <div class="photo-refs">Photo refs:</div>
+
+        <!-- Door 2 -->
+        <div class="door-header">
+            <h3>Door 2</h3>
+            <div class="door-ref">
+                <span><label>Door Ref:</label> <span class="field-line"></span></span>
+                <span><label>Location:</label> <span class="field-line field-line-long"></span></span>
+            </div>
+        </div>
+        <table class="check-table">
+            <thead>
+                <tr><th>Check Item</th><th>Pass</th><th>Fail</th><th>N/A</th><th>Defect Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Certification / labelling present</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Leaf-to-frame gap — top (2–4mm)</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Leaf-to-frame gap — sides (2–4mm)</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Threshold gap (max 8mm or as spec)</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Intumescent strips — present &amp; intact</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Cold smoke seals — present &amp; intact</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Door closer — fitted &amp; operating correctly</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Hinges — correct type, qty &amp; condition (3 min)</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Glazing — correct spec, beading &amp; seals</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Signage — fire door keep shut / locked</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Leaf condition — no damage, holes, splits</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Frame condition — secure, undamaged</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Holds to latch / locks correctly</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>No unauthorised modifications</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr class="severity-row">
+                    <td><strong>Overall Severity Rating</strong></td>
+                    <td colspan="4">
+                        <div class="severity-labels">
+                            <span class="sev-c"><span class="tick-box"></span> Critical</span>
+                            <span class="sev-h"><span class="tick-box"></span> High</span>
+                            <span class="sev-m"><span class="tick-box"></span> Medium</span>
+                            <span class="sev-l"><span class="tick-box"></span> Low</span>
+                            <span><span class="tick-box"></span> Pass</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="notes-area">Additional notes / remedial recommendations:</div>
+        <div class="photo-refs">Photo refs:</div>
+
+        <!-- Footer -->
+        <div class="form-footer">
+            <span>DE Fire Compliance — FDIS Qualified | info@defirecompliance.co.uk</span>
+            <span>Form Ref: DEFC-INSP-001 | Rev 1.0</span>
+        </div>
+    </div>
+
+    <!-- ==================== PAGE 2 ==================== -->
+    <div class="page">
+
+        <div class="form-header">
+            <div class="brand">
+                <h1>&#128737; DE Fire Compliance</h1>
+                <p>Fire Door Inspection &amp; Compliance Reporting</p>
+            </div>
+            <div class="header-right">
+                <strong>Fire Door Inspection Form (cont.)</strong>
+                Page ___ of ___
+            </div>
+        </div>
+
+        <!-- Door 3 -->
+        <div class="door-header">
+            <h3>Door 3</h3>
+            <div class="door-ref">
+                <span><label>Door Ref:</label> <span class="field-line"></span></span>
+                <span><label>Location:</label> <span class="field-line field-line-long"></span></span>
+            </div>
+        </div>
+        <table class="check-table">
+            <thead>
+                <tr><th>Check Item</th><th>Pass</th><th>Fail</th><th>N/A</th><th>Defect Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Certification / labelling present</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Leaf-to-frame gap — top (2–4mm)</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Leaf-to-frame gap — sides (2–4mm)</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Threshold gap (max 8mm or as spec)</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Intumescent strips — present &amp; intact</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Cold smoke seals — present &amp; intact</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Door closer — fitted &amp; operating correctly</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Hinges — correct type, qty &amp; condition (3 min)</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Glazing — correct spec, beading &amp; seals</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Signage — fire door keep shut / locked</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Leaf condition — no damage, holes, splits</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Frame condition — secure, undamaged</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>Holds to latch / locks correctly</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr><td>No unauthorised modifications</td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td class="center"><span class="tick-box"></span></td><td></td></tr>
+                <tr class="severity-row">
+                    <td><strong>Overall Severity Rating</strong></td>
+                    <td colspan="4">
+                        <div class="severity-labels">
+                            <span class="sev-c"><span class="tick-box"></span> Critical</span>
+                            <span class="sev-h"><span class="tick-box"></span> High</span>
+                            <span class="sev-m"><span class="tick-box"></span> Medium</span>
+                            <span class="sev-l"><span class="tick-box"></span> Low</span>
+                            <span><span class="tick-box"></span> Pass</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="notes-area">Additional notes / remedial recommendations:</div>
+        <div class="photo-refs">Photo refs:</div>
+
+        <!-- Summary Section -->
+        <div class="section-title section-title-dark" style="margin-top: 6mm;">Inspection Summary</div>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th style="width:25%;">Metric</th>
+                    <th style="width:15%;">Count</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Total doors inspected</td><td></td><td></td></tr>
+                <tr><td>Doors passed</td><td></td><td></td></tr>
+                <tr><td style="color:#b91c1c;">Critical defects</td><td></td><td></td></tr>
+                <tr><td style="color:#d97706;">High defects</td><td></td><td></td></tr>
+                <tr><td style="color:#2563eb;">Medium defects</td><td></td><td></td></tr>
+                <tr><td style="color:#059669;">Low / advisory</td><td></td><td></td></tr>
+                <tr><td>Doors requiring replacement</td><td></td><td></td></tr>
+                <tr><td>Doors requiring remedial works</td><td></td><td></td></tr>
+            </tbody>
+        </table>
+
+        <div class="notes-area" style="min-height: 20mm; margin-bottom: 4mm;">General site observations / recommendations:</div>
+
+        <!-- Sign-off -->
+        <div class="section-title section-title-dark">Sign-Off</div>
+        <div class="sign-off">
+            <div class="sign-off-grid">
+                <div class="sign-box">
+                    <label>Inspector Signature</label>
+                    <div class="sign-line"></div>
+                    <div class="sign-date">Name: ________________________________ &nbsp;&nbsp; Date: _______________</div>
+                    <div class="sign-date" style="margin-top:2mm;">FDIS Ref: ________________________________</div>
+                </div>
+                <div class="sign-box">
+                    <label>Client / Responsible Person Acknowledgement</label>
+                    <div class="sign-line"></div>
+                    <div class="sign-date">Name: ________________________________ &nbsp;&nbsp; Date: _______________</div>
+                    <div class="sign-date" style="margin-top:2mm;">Position: ________________________________</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Severity Key -->
+        <div style="margin-top: 5mm; font-size: 7pt; color: #666; border: 0.5px solid #ddd; padding: 2mm 3mm; background: #fafafa;">
+            <strong>Severity Key:</strong>
+            <span style="color:#b91c1c;">■ Critical</span> — Immediate risk to life safety. Door must be repaired/replaced urgently. &nbsp;
+            <span style="color:#d97706;">■ High</span> — Significant defect compromising fire resistance. Action within 1 month. &nbsp;
+            <span style="color:#2563eb;">■ Medium</span> — Defect reducing performance. Action within 3 months. &nbsp;
+            <span style="color:#059669;">■ Low</span> — Minor issue or advisory. Schedule at next maintenance cycle.
+        </div>
+
+        <!-- Footer -->
+        <div class="form-footer" style="margin-top: 4mm;">
+            <span>DE Fire Compliance — FDIS Qualified | info@defirecompliance.co.uk</span>
+            <span>Form Ref: DEFC-INSP-001 | Rev 1.0</span>
+        </div>
+    </div>
+
+</body>
+</html>
