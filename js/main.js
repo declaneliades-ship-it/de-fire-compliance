@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .catch(function () {
                 submitBtn.textContent = 'Send Enquiry';
                 submitBtn.disabled = false;
-                formError.textContent = 'Something went wrong. Please try again or call us on 07500 858 634.';
+                formError.textContent = 'Something went wrong. Please try again or call us on +44 7770 871782.';
                 formError.style.display = 'block';
             });
         });
