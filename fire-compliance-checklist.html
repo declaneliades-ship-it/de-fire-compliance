@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="3N6YfXU3mpbzyG3YAgNxxLJ36iSvg06XAAP58NuTgZA" />
+    <meta name="description" content="Download our free fire compliance checklist for building managers and responsible persons. Covers fire doors, compartmentation, signage, and documentation. BS 8214 and Regulatory Reform (Fire Safety) Order 2005 compliant.">
+    <meta name="keywords" content="fire compliance checklist, fire door checklist PDF, building manager fire safety checklist, responsible person fire compliance, free fire safety audit template">
+    <title>Free Fire Compliance Checklist for Building Managers | DE Fire Compliance</title>
+
+    <meta property="og:title" content="Free Fire Compliance Checklist for Building Managers | DE Fire Compliance">
+    <meta property="og:description" content="Download a free fire compliance checklist covering fire doors, compartmentation, signage, and documentation requirements.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://defirecompliance.co.uk/fire-compliance-checklist">
+
+    <link rel="canonical" href="https://defirecompliance.co.uk/fire-compliance-checklist">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4VQ12H1EB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M4VQ12H1EB');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        .lead-container { max-width: 640px; margin: 0 auto; }
+
+        .lead-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .lead-card h2 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .lead-card .lead-subtitle {
+            text-align: center;
+            color: var(--color-text-light);
+            font-size: 0.92rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .checklist-preview {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .checklist-preview h3 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .preview-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0;
+            font-size: 0.88rem;
+        }
+
+        .preview-item .check {
+            color: #059669;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .gate-form .form-group { margin-bottom: 1rem; }
+
+        .gate-form label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: var(--color-text);
+        }
+
+        .gate-form input,
+        .gate-form select {
+            width: 100%;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            padding: 0.7rem 1rem;
+            border: 1.5px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            background: var(--color-bg);
+            color: var(--color-text);
+            transition: border-color var(--transition), box-shadow var(--transition);
+        }
+
+        .gate-form input:focus,
+        .gate-form select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.08);
+        }
+
+        .gate-btn {
+            display: block;
+            width: 100%;
+            padding: 0.85rem;
+            margin-top: 0.5rem;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+        .gate-btn:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .gate-note {
+            text-align: center;
+            margin-top: 0.75rem;
+            font-size: 0.78rem;
+            color: var(--color-text-light);
+        }
+
+        .success-panel {
+            display: none;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        .success-panel.visible { display: block; }
+
+        .success-panel .success-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: #ecfdf5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+        }
+
+        .success-panel h3 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #059669;
+        }
+
+        .success-panel p {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* Content section */
+        .checklist-content h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .checklist-content h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .checklist-content p {
+            color: var(--color-text-light);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        .checklist-content ul {
+            list-style: disc;
+            padding-left: 1.2rem;
+            color: var(--color-text-light);
+            font-size: 0.92rem;
+            line-height: 1.8;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .lead-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                <span class="logo-mark">&#128737;</span>
+                DE Fire Compliance
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/services/fire-door-inspections">Fire Door Inspections</a></li>
+                <li><a href="/services/fire-stopping-compartmentation">Fire Stopping</a></li>
+                <li><a href="/quote-calculator">Quote Calculator</a></li>
+                <li><a href="/#contact" class="btn btn-nav">Get a Quote</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" id="hero" style="min-height: 55vh;">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">Free Download &bull; No Obligation</div>
+            <h1>Fire Compliance Checklist<br>for Building Managers</h1>
+            <p class="hero-subtitle">A practical checklist covering fire doors, compartmentation, signage, and documentation. Used by responsible persons across the UK.</p>
+        </div>
+    </header>
+
+    <!-- Download gated form -->
+    <section class="section" style="background: var(--color-bg-alt);">
+        <div class="container lead-container">
+            <div class="lead-card">
+                <h2>Download the Free Checklist</h2>
+                <p class="lead-subtitle">Enter your details below and we&rsquo;ll email you the checklist as a PDF. You&rsquo;ll also get a complimentary compliance snapshot &mdash; no strings attached.</p>
+
+                <div class="checklist-preview">
+                    <h3>What&rsquo;s Inside</h3>
+                    <div class="preview-item"><span class="check">&#10003;</span> Fire door inspection checklist (visual + functional tests)</div>
+                    <div class="preview-item"><span class="check">&#10003;</span> Compartmentation and fire stopping audit points</div>
+                    <div class="preview-item"><span class="check">&#10003;</span> Fire signage and means-of-escape walkthrough</div>
+                    <div class="preview-item"><span class="check">&#10003;</span> Documentation and record-keeping requirements</div>
+                    <div class="preview-item"><span class="check">&#10003;</span> Reference to BS 8214, Fire Safety Order 2005 &amp; Building Safety Act 2022</div>
+                    <div class="preview-item"><span class="check">&#10003;</span> Quick-action priority indicators</div>
+                </div>
+
+                <div class="gate-form" id="gateForm">
+                    <div class="form-group">
+                        <label for="gateName">Full Name *</label>
+                        <input type="text" id="gateName" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gateEmail">Work Email *</label>
+                        <input type="email" id="gateEmail" placeholder="you@company.co.uk" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gateRole">Role</label>
+                        <select id="gateRole">
+                            <option value="">Select your role (optional)</option>
+                            <option value="building-manager">Building Manager</option>
+                            <option value="facilities-manager">Facilities Manager</option>
+                            <option value="property-manager">Property Manager</option>
+                            <option value="responsible-person">Responsible Person</option>
+                            <option value="fire-safety-officer">Fire Safety Officer</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button type="button" class="gate-btn" id="gateBtn">Download the Checklist</button>
+                    <p class="gate-note">No spam, ever. Unsubscribe any time.</p>
+                </div>
+
+                <div class="success-panel" id="gateSuccess">
+                    <div class="success-icon">&#9993;</div>
+                    <h3>Check Your Inbox</h3>
+                    <p>We&rsquo;ve emailed the Fire Compliance Checklist to you. Check your spam folder if it doesn&rsquo;t arrive within a few minutes.</p>
+                    <p style="margin-top: 1rem;">Need an inspection sooner? <a href="tel:+447770871782" style="font-weight: 600;">Call us on +44 7770 871782</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content SEO section -->
+    <section class="section">
+        <div class="container" style="max-width: 740px;">
+            <div class="checklist-content">
+                <h3>Why Every Building Manager Needs a Fire Compliance Checklist</h3>
+                <p>Under the Regulatory Reform (Fire Safety) Order 2005 and the Fire Safety Act 2021, the &ldquo;responsible person&rdquo; for a building must take reasonable steps to reduce the risk of fire and keep people safe. The Building Safety Act 2022 added further duties for higher-risk buildings.</p>
+                <p>A structured checklist ensures you cover every item auditors and fire risk assessors look for &mdash; and that nothing falls through the cracks between inspections.</p>
+
+                <h4>What the Checklist Covers</h4>
+                <ul>
+                    <li><strong>Fire Door Checks:</strong> Gaps, seals, hinges, self-closers, signage, glazing, frame integrity &mdash; aligned with BS 8214 guidance</li>
+                    <li><strong>Compartmentation:</strong> Penetration seals, service risers, ceiling voids, fire stopping around pipes, cables, and ducts</li>
+                    <li><strong>Means of Escape:</strong> Exit routes clear and unobstructed, final exit doors operational, emergency lighting functional</li>
+                    <li><strong>Signage:</strong> &ldquo;Fire Door Keep Shut&rdquo; and &ldquo;Fire Door Keep Locked&rdquo; notices present and legible on every fire door</li>
+                    <li><strong>Documentation:</strong> Fire risk assessment current, inspection records filed, remedial actions logged and tracked</li>
+                </ul>
+
+                <h4>Who Is This For?</h4>
+                <p>The checklist is designed for building managers, facilities managers, housing association officers, property managers, and any &ldquo;responsible person&rdquo; under the Fire Safety Order. It&rsquo;s particularly useful as a pre-inspection preparation tool or a monthly walk-round guide.</p>
+
+                <h4>Need Professional Support?</h4>
+                <p>If your checklist reveals issues &mdash; or if you&rsquo;d rather have a qualified inspector carry out a full survey &mdash; we can help. DE Fire Compliance provides FDIS-qualified fire door inspections and compartmentation surveys across Buckinghamshire, Berkshire, Oxfordshire, and London.</p>
+                <p style="margin-top: 1rem;"><a href="/quote-calculator" class="btn btn-primary">Get an Instant Quote</a> &nbsp; <a href="/#contact" class="btn btn-outline">Contact Us</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <span class="logo-mark">&#128737;</span>
+                        DE Fire Compliance
+                    </a>
+                    <p>Fire door inspections, compartmentation surveys, and compliance support. FDIS-qualified reports. Bucks, South East &amp; London.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/services/fire-door-inspections">Fire Door Inspections</a></li>
+                        <li><a href="/services/fire-stopping-compartmentation">Fire Stopping &amp; Compartmentation</a></li>
+                        <li><a href="/quote-calculator">Quote Calculator</a></li>
+                        <li><a href="/#services">All Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Areas</h4>
+                    <ul>
+                        <li><a href="/buckinghamshire-fire-door-inspections">Buckinghamshire</a></li>
+                        <li><a href="/berkshire-fire-door-inspections">Berkshire</a></li>
+                        <li><a href="/reading-fire-door-inspections">Reading</a></li>
+                        <li><a href="/slough-fire-door-inspections">Slough</a></li>
+                        <li><a href="/oxford-fire-door-inspections">Oxfordshire</a></li>
+                        <li><a href="/london-fire-door-inspections">London</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info@defirecompliance.co.uk">info@defirecompliance.co.uk</a></li>
+                        <li><a href="tel:+447770871782">+44 7770 871782</a></li>
+                        <li>Bucks, South East &amp; London</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DE Fire Compliance. All rights reserved.</p>
+                <p class="footer-legal">DE Fire Compliance is a trading name of DE Site Solutions Ltd. Registered in England &amp; Wales. Company number: 16474802. Registered address: Coach House Bear Lane, Hare Hatch, Reading, RG10 9XR.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script>
+    (function () {
+        var gateBtn = document.getElementById('gateBtn');
+
+        gateBtn.addEventListener('click', function () {
+            var name = document.getElementById('gateName').value.trim();
+            var email = document.getElementById('gateEmail').value.trim();
+            var role = document.getElementById('gateRole').value;
+
+            if (!name || !email) {
+                alert('Please enter your name and email address.');
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            gateBtn.textContent = 'Sending...';
+            gateBtn.disabled = true;
+
+            var payload = {
+                name: name,
+                email: email,
+                phone: '',
+                message: 'Lead magnet download – Role: ' + (role || 'Not specified'),
+                service: 'fire-compliance-checklist',
+                source: '/fire-compliance-checklist'
+            };
+
+            fetch('/api/enquiry', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(function (res) {
+                if (!res.ok) throw new Error('Server error');
+                return res.json();
+            })
+            .then(function () {
+                document.getElementById('gateForm').style.display = 'none';
+                document.getElementById('gateSuccess').classList.add('visible');
+            })
+            .catch(function () {
+                gateBtn.textContent = 'Download the Checklist';
+                gateBtn.disabled = false;
+                alert('Something went wrong. Please try again or call us on +44 7770 871782.');
+            });
+        });
+    })();
+    </script>
+</body>
+</html>

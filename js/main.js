@@ -23,14 +23,23 @@ document.addEventListener('DOMContentLoaded', function () {
     var navLinks = document.getElementById('navLinks');
 
     if (navToggle && navLinks) {
-        navToggle.addEventListener('click', function () {
+        navToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
             navLinks.classList.toggle('active');
+        });
+
+        navLinks.addEventListener('click', function (e) {
+            e.stopPropagation();
         });
 
         navLinks.querySelectorAll('a').forEach(function (link) {
             link.addEventListener('click', function () {
                 navLinks.classList.remove('active');
             });
+        });
+
+        document.addEventListener('click', function () {
+            navLinks.classList.remove('active');
         });
     }
 

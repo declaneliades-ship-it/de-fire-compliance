@@ -28,6 +28,12 @@
     { "source": "/berkshire-fire-door-inspections", "destination": "/seo/berkshire.html" },
     { "source": "/reading-fire-door-inspections", "destination": "/seo/reading.html" },
     { "source": "/slough-fire-door-inspections", "destination": "/seo/slough.html" },
-    { "source": "/oxford-fire-door-inspections", "destination": "/seo/oxford.html" }
+    { "source": "/oxford-fire-door-inspections", "destination": "/seo/oxford.html" },
+    { "source": "/services/fire-door-inspections", "destination": "/services/fire-door-inspections.html" },
+    { "source": "/services/fire-stopping-compartmentation", "destination": "/services/fire-stopping-compartmentation.html" },
+    { "source": "/quote-calculator", "destination": "/quote-calculator.html" },
+    { "source": "/fire-compliance-checklist", "destination": "/fire-compliance-checklist.html" },
+    { "source": "/blog/are-fire-door-inspections-a-legal-requirement", "destination": "/blog/are-fire-door-inspections-a-legal-requirement.html" },
+    { "source": "/blog/how-often-should-fire-doors-be-inspected", "destination": "/blog/how-often-should-fire-doors-be-inspected.html" }
   ]
 }

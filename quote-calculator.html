@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="3N6YfXU3mpbzyG3YAgNxxLJ36iSvg06XAAP58NuTgZA" />
+    <meta name="description" content="Get an instant estimate for your fire door inspection. Enter number of doors, property type, and location. No obligation. Competitive per-door pricing from DE Fire Compliance.">
+    <meta name="keywords" content="fire door inspection cost UK, fire door inspection price per door UK, how much does fire door inspection cost, fire door inspection quote, fire door compliance check cost">
+    <title>Fire Door Inspection Quote Calculator | DE Fire Compliance</title>
+
+    <meta property="og:title" content="Fire Door Inspection Quote Calculator | DE Fire Compliance">
+    <meta property="og:description" content="Get an instant estimate for your fire door inspection. Enter the number of doors and get a no-obligation price. Competitive per-door rates.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://defirecompliance.co.uk/quote-calculator">
+
+    <link rel="canonical" href="https://defirecompliance.co.uk/quote-calculator">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Fire Door Inspection Quote Calculator",
+      "description": "Get an instant estimate for fire door inspection pricing. No obligation.",
+      "url": "https://defirecompliance.co.uk/quote-calculator",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "DE Fire Compliance",
+        "url": "https://defirecompliance.co.uk",
+        "telephone": "+447770871782"
+      }
+    }
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4VQ12H1EB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M4VQ12H1EB');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        .calc-section { background: var(--color-bg-alt); }
+        .calc-container { max-width: 680px; margin: 0 auto; }
+
+        .calc-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .calc-card h2 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .calc-card .calc-subtitle {
+            text-align: center;
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .calc-form .form-group { margin-bottom: 1.25rem; }
+
+        .calc-form label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.35rem;
+            color: var(--color-text);
+        }
+
+        .calc-form input,
+        .calc-form select {
+            width: 100%;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            background: var(--color-bg);
+            color: var(--color-text);
+            transition: border-color var(--transition), box-shadow var(--transition);
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .calc-form input:focus,
+        .calc-form select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.08);
+        }
+
+        .calc-form input[type="number"] {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .radio-option {
+            flex: 1;
+            position: relative;
+        }
+
+        .radio-option input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .radio-option label {
+            display: block;
+            text-align: center;
+            padding: 0.65rem 1rem;
+            border: 1.5px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all var(--transition);
+            margin-bottom: 0;
+        }
+
+        .radio-option input:checked + label {
+            border-color: var(--color-primary);
+            background: #fef2f2;
+            color: var(--color-primary);
+        }
+
+        .calc-btn {
+            display: block;
+            width: 100%;
+            padding: 0.85rem;
+            margin-top: 0.5rem;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+        .calc-btn:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Result */
+        .calc-result {
+            display: none;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            border-radius: var(--radius-md);
+            color: var(--color-white);
+            text-align: center;
+        }
+        .calc-result.visible { display: block; }
+
+        .result-price {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .result-per-door {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 0.75rem;
+        }
+
+        .result-note {
+            font-size: 0.82rem;
+            opacity: 0.75;
+            line-height: 1.6;
+        }
+
+        .calc-result-outside {
+            display: none;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+        .calc-result-outside.visible { display: block; }
+
+        .calc-error {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: var(--radius-sm);
+            color: var(--color-primary);
+            font-size: 0.85rem;
+            text-align: center;
+        }
+        .calc-error.visible { display: block; }
+
+        /* Upsells */
+        .upsell-section {
+            display: none;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+        }
+        .upsell-section.visible { display: block; }
+
+        .upsell-section h3 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .upsell-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+        }
+
+        .upsell-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--color-primary);
+            flex-shrink: 0;
+        }
+
+        .upsell-item label {
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        .upsell-item span {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--color-text-light);
+            margin-top: 0.1rem;
+        }
+
+        /* Lead capture */
+        .lead-capture {
+            display: none;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+        }
+        .lead-capture.visible { display: block; }
+
+        .lead-capture h3 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .lead-capture p {
+            color: var(--color-text-light);
+            font-size: 0.88rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .lead-capture .form-group { margin-bottom: 1rem; }
+        .lead-capture label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+        .lead-capture input {
+            width: 100%;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            padding: 0.65rem 0.85rem;
+            border: 1.5px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            background: var(--color-bg);
+        }
+        .lead-capture input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.08);
+        }
+
+        .lead-success {
+            display: none;
+            text-align: center;
+            padding: 1.5rem;
+        }
+        .lead-success.visible { display: block; }
+        .lead-success h3 {
+            font-family: var(--font-heading);
+            color: var(--color-success);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .calc-card { padding: 1.5rem; }
+            .result-price { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                <span class="logo-mark">&#128737;</span>
+                DE Fire Compliance
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/services/fire-door-inspections">Fire Door Inspections</a></li>
+                <li><a href="/services/fire-stopping-compartmentation">Fire Stopping</a></li>
+                <li><a href="/quote-calculator">Quote Calculator</a></li>
+                <li><a href="/#contact" class="btn btn-nav">Get a Quote</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" id="hero" style="min-height: 55vh;">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">Instant Estimate &bull; No Obligation</div>
+            <h1>Fire Door Inspection<br>Quote Calculator</h1>
+            <p class="hero-subtitle">Enter the number of doors, your property type, and location to get an instant estimate. No commitment, no email required.</p>
+        </div>
+    </header>
+
+    <!-- Calculator -->
+    <section class="section calc-section">
+        <div class="container calc-container">
+            <div class="calc-card">
+                <h2>Get Your Estimate</h2>
+                <p class="calc-subtitle">Fill in the details below for an instant, no-obligation price.</p>
+
+                <div class="calc-form" id="calcForm">
+                    <div class="form-group">
+                        <label for="doorCount">Number of Fire Doors</label>
+                        <input type="number" id="doorCount" min="1" placeholder="e.g. 50" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="propertyType">Property Type</label>
+                        <select id="propertyType">
+                            <option value="">Select property type</option>
+                            <option value="housing-association">Housing Association / Residential Block</option>
+                            <option value="care-home">Care Home / Healthcare</option>
+                            <option value="commercial">Commercial / Office</option>
+                            <option value="education">School / Education</option>
+                            <option value="industrial">Industrial / Warehouse</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <select id="location">
+                            <option value="">Select location</option>
+                            <option value="buckinghamshire">Buckinghamshire</option>
+                            <option value="berkshire">Berkshire</option>
+                            <option value="oxfordshire">Oxfordshire</option>
+                            <option value="london">London</option>
+                            <option value="south-east">Other South East</option>
+                            <option value="outside">Outside coverage area</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Multi-site?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="multiNo" name="multisite" value="no" checked>
+                                <label for="multiNo">No</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="multiYes" name="multisite" value="yes">
+                                <label for="multiYes">Yes</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="calc-btn" id="calcBtn">Calculate My Quote</button>
+                </div>
+
+                <div class="calc-error" id="calcError"></div>
+
+                <!-- Result -->
+                <div class="calc-result" id="calcResult">
+                    <div class="result-price" id="resultPrice"></div>
+                    <div class="result-per-door" id="resultPerDoor"></div>
+                    <div class="result-note">This is a no-obligation estimate based on standard day-rate pricing.<br>Final price confirmed after a brief site discussion. Multi-site discounts available.</div>
+                </div>
+
+                <!-- Outside coverage -->
+                <div class="calc-result-outside" id="calcOutside">
+                    <p style="font-size: 0.95rem; margin-bottom: 0.75rem;"><strong>We may be able to cover this location.</strong></p>
+                    <p style="color: var(--color-text-light); font-size: 0.88rem;">Please call us on <a href="tel:+447770871782" style="font-weight: 600;">+44 7770 871782</a> or <a href="mailto:info@defirecompliance.co.uk">email us</a> to discuss.</p>
+                </div>
+
+                <!-- Upsells -->
+                <div class="upsell-section" id="upsellSection">
+                    <h3>While we&rsquo;re on site, we can also include:</h3>
+                    <div class="upsell-item">
+                        <input type="checkbox" id="upsell1" name="upsell_compartmentation">
+                        <div>
+                            <label for="upsell1">Compartmentation survey</label>
+                            <span>Check all penetrations and fire stopping in the building</span>
+                        </div>
+                    </div>
+                    <div class="upsell-item">
+                        <input type="checkbox" id="upsell2" name="upsell_exit">
+                        <div>
+                            <label for="upsell2">Final exit door check</label>
+                            <span>Ironmongery, panic hardware, and compliance</span>
+                        </div>
+                    </div>
+                    <div class="upsell-item">
+                        <input type="checkbox" id="upsell3" name="upsell_signage">
+                        <div>
+                            <label for="upsell3">Fire signage audit</label>
+                            <span>Ensure all mandatory signage is present and legible</span>
+                        </div>
+                    </div>
+                    <div class="upsell-item">
+                        <input type="checkbox" id="upsell4" name="upsell_contract">
+                        <div>
+                            <label for="upsell4">Ongoing compliance contract</label>
+                            <span>Scheduled inspections on a rolling basis</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.82rem; color: var(--color-text-light); margin-top: 0.75rem;">Tick any that apply and we&rsquo;ll include them in your formal quote.</p>
+                </div>
+
+                <!-- Lead capture -->
+                <div class="lead-capture" id="leadCapture">
+                    <h3>Want a Formal Written Quote?</h3>
+                    <p>We&rsquo;ll email a detailed quote within 24 hours. No commitment.</p>
+                    <div id="leadForm">
+                        <div class="form-group">
+                            <label for="leadName">Name *</label>
+                            <input type="text" id="leadName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="leadEmail">Email *</label>
+                            <input type="email" id="leadEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="leadPhone">Phone (optional)</label>
+                            <input type="tel" id="leadPhone">
+                        </div>
+                        <button type="button" class="calc-btn" id="leadBtn" style="margin-top: 0.5rem;">Send Me the Quote</button>
+                    </div>
+                    <div class="lead-success" id="leadSuccess">
+                        <h3>Quote Request Received</h3>
+                        <p style="color: var(--color-text-light); font-size: 0.9rem;">We&rsquo;ll send your formal quote within 24 hours.</p>
+                    </div>
+                    <p style="text-align: center; margin-top: 1rem; font-size: 0.88rem;">Or call us now: <a href="tel:+447770871782" style="font-weight: 600;">+44 7770 871782</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation CTA -->
+    <section class="section" style="background: linear-gradient(135deg, #059669 0%, #047857 100%); color: var(--color-white); text-align: center;">
+        <div class="container" style="max-width: 650px;">
+            <h2 style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--color-white); margin-bottom: var(--space-sm);">Book a Free 15-Minute Fire Compliance Consultation</h2>
+            <p style="font-size: 0.95rem; opacity: 0.9; margin-bottom: var(--space-lg); line-height: 1.7;">Speak with an expert about your building and compliance requirements. No obligation, no sales pressure.</p>
+            <div style="display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap;">
+                <a href="tel:+447770871782" class="btn btn-lg" style="background: var(--color-white); color: #047857; border-color: var(--color-white);">Call +44 7770 871782</a>
+                <a href="mailto:info@defirecompliance.co.uk" class="btn btn-lg" style="background: transparent; color: var(--color-white); border: 2px solid rgba(255,255,255,0.4);">Email Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <span class="logo-mark">&#128737;</span>
+                        DE Fire Compliance
+                    </a>
+                    <p>Fire door inspections, compartmentation surveys, and compliance support. FDIS-qualified reports. Bucks, South East &amp; London.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/services/fire-door-inspections">Fire Door Inspections</a></li>
+                        <li><a href="/services/fire-stopping-compartmentation">Fire Stopping &amp; Compartmentation</a></li>
+                        <li><a href="/quote-calculator">Quote Calculator</a></li>
+                        <li><a href="/#services">All Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Areas</h4>
+                    <ul>
+                        <li><a href="/buckinghamshire-fire-door-inspections">Buckinghamshire</a></li>
+                        <li><a href="/berkshire-fire-door-inspections">Berkshire</a></li>
+                        <li><a href="/reading-fire-door-inspections">Reading</a></li>
+                        <li><a href="/slough-fire-door-inspections">Slough</a></li>
+                        <li><a href="/oxford-fire-door-inspections">Oxfordshire</a></li>
+                        <li><a href="/london-fire-door-inspections">London</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info@defirecompliance.co.uk">info@defirecompliance.co.uk</a></li>
+                        <li><a href="tel:+447770871782">+44 7770 871782</a></li>
+                        <li>Bucks, South East &amp; London</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DE Fire Compliance. All rights reserved.</p>
+                <p class="footer-legal">DE Fire Compliance is a trading name of DE Site Solutions Ltd. Registered in England &amp; Wales. Company number: 16474802. Registered address: Coach House Bear Lane, Hare Hatch, Reading, RG10 9XR.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script>
+    (function () {
+        var calcBtn = document.getElementById('calcBtn');
+        var leadBtn = document.getElementById('leadBtn');
+
+        calcBtn.addEventListener('click', function () {
+            var doors = parseInt(document.getElementById('doorCount').value, 10);
+            var propertyType = document.getElementById('propertyType').value;
+            var location = document.getElementById('location').value;
+            var errorEl = document.getElementById('calcError');
+            var resultEl = document.getElementById('calcResult');
+            var outsideEl = document.getElementById('calcOutside');
+            var upsellEl = document.getElementById('upsellSection');
+            var leadEl = document.getElementById('leadCapture');
+
+            // Reset
+            errorEl.classList.remove('visible');
+            resultEl.classList.remove('visible');
+            outsideEl.classList.remove('visible');
+            upsellEl.classList.remove('visible');
+            leadEl.classList.remove('visible');
+
+            // Validate
+            if (!doors || doors < 1) {
+                errorEl.textContent = 'Please enter the number of fire doors (minimum 1).';
+                errorEl.classList.add('visible');
+                return;
+            }
+            if (!propertyType) {
+                errorEl.textContent = 'Please select a property type.';
+                errorEl.classList.add('visible');
+                return;
+            }
+            if (!location) {
+                errorEl.textContent = 'Please select a location.';
+                errorEl.classList.add('visible');
+                return;
+            }
+
+            // Outside coverage
+            if (location === 'outside') {
+                outsideEl.classList.add('visible');
+                return;
+            }
+
+            // Calculate price
+            var price;
+            if (doors <= 28) {
+                price = Math.max(150, doors * 12);
+            } else if (doors <= 60) {
+                price = doors * 10;
+            } else {
+                price = doors * 9;
+            }
+
+            var perDoor = (price / doors).toFixed(2);
+
+            document.getElementById('resultPrice').textContent = '\u00A3' + price.toLocaleString('en-GB');
+            document.getElementById('resultPerDoor').textContent = '\u00A3' + perDoor + ' per door \u00B7 ' + doors + ' doors';
+
+            resultEl.classList.add('visible');
+            upsellEl.classList.add('visible');
+            leadEl.classList.add('visible');
+
+            // Scroll to result
+            resultEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        leadBtn.addEventListener('click', function () {
+            var name = document.getElementById('leadName').value.trim();
+            var email = document.getElementById('leadEmail').value.trim();
+            var phone = document.getElementById('leadPhone').value.trim();
+
+            if (!name || !email) {
+                alert('Please enter your name and email address.');
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            leadBtn.textContent = 'Sending...';
+            leadBtn.disabled = true;
+
+            // Gather upsells
+            var upsells = [];
+            if (document.getElementById('upsell1').checked) upsells.push('Compartmentation survey');
+            if (document.getElementById('upsell2').checked) upsells.push('Final exit door check');
+            if (document.getElementById('upsell3').checked) upsells.push('Fire signage audit');
+            if (document.getElementById('upsell4').checked) upsells.push('Ongoing compliance contract');
+
+            var payload = {
+                name: name,
+                email: email,
+                phone: phone,
+                doors: document.getElementById('doorCount').value,
+                propertyType: document.getElementById('propertyType').value,
+                location: document.getElementById('location').value,
+                multisite: document.querySelector('input[name="multisite"]:checked').value,
+                upsells: upsells.join(', '),
+                estimatedPrice: document.getElementById('resultPrice').textContent,
+                service: 'quote-calculator',
+                source: '/quote-calculator'
+            };
+
+            fetch('/api/enquiry', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(function (res) {
+                if (!res.ok) throw new Error('Server error');
+                return res.json();
+            })
+            .then(function () {
+                document.getElementById('leadForm').style.display = 'none';
+                document.getElementById('leadSuccess').classList.add('visible');
+            })
+            .catch(function () {
+                leadBtn.textContent = 'Send Me the Quote';
+                leadBtn.disabled = false;
+                alert('Something went wrong. Please try again or call us on +44 7770 871782.');
+            });
+        });
+    })();
+    </script>
+</body>
+</html>
