@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Fire Compliance Checklist — DE Fire Compliance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --red: #b91c1c;
+            --dark: #0f172a;
+            --text: #334155;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg: #f8f9fb;
+            --green: #059669;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            font-size: 11pt;
+            line-height: 1.5;
+            background: white;
+        }
+
+        .page {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 15mm 18mm;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 3px solid var(--red);
+            padding-bottom: 12pt;
+            margin-bottom: 16pt;
+        }
+        .header-left h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 20pt;
+            color: var(--dark);
+            margin-bottom: 2pt;
+        }
+        .header-left p {
+            font-size: 9pt;
+            color: var(--text-light);
+        }
+        .header-right {
+            text-align: right;
+            font-size: 8pt;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        .header-right strong {
+            color: var(--dark);
+        }
+        .logo-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: 11pt;
+            color: var(--dark);
+            margin-bottom: 4pt;
+        }
+
+        /* Info fields */
+        .info-fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8pt;
+            margin-bottom: 18pt;
+            background: var(--bg);
+            padding: 10pt 12pt;
+            border-radius: 4pt;
+            border: 1px solid var(--border);
+        }
+        .info-field label {
+            font-size: 8pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5pt;
+            color: var(--text-light);
+            display: block;
+            margin-bottom: 2pt;
+        }
+        .info-field .line {
+            border-bottom: 1px solid var(--border);
+            min-height: 16pt;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 14pt;
+            page-break-inside: avoid;
+        }
+        .section-header {
+            background: var(--dark);
+            color: white;
+            padding: 6pt 10pt;
+            font-size: 10pt;
+            font-weight: 700;
+            border-radius: 3pt 3pt 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .section-header span {
+            font-size: 8pt;
+            font-weight: 400;
+            opacity: 0.7;
+        }
+
+        /* Checklist table */
+        .checklist {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 9.5pt;
+        }
+        .checklist th {
+            background: var(--bg);
+            text-align: left;
+            padding: 5pt 8pt;
+            font-size: 8pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3pt;
+            color: var(--text-light);
+            border: 1px solid var(--border);
+        }
+        .checklist td {
+            padding: 5pt 8pt;
+            border: 1px solid var(--border);
+            vertical-align: top;
+        }
+        .checklist .item-num {
+            width: 28pt;
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 8pt;
+        }
+        .checklist .item-desc {
+            width: auto;
+        }
+        .checklist .item-check {
+            width: 32pt;
+            text-align: center;
+        }
+        .checklist .item-notes {
+            width: 100pt;
+        }
+        .check-box {
+            display: inline-block;
+            width: 12pt;
+            height: 12pt;
+            border: 1.5px solid var(--border);
+            border-radius: 2pt;
+            vertical-align: middle;
+        }
+        .checklist .sub-note {
+            font-size: 8pt;
+            color: var(--text-light);
+            margin-top: 1pt;
+        }
+
+        /* Severity key */
+        .severity-key {
+            display: flex;
+            gap: 16pt;
+            margin-bottom: 14pt;
+            font-size: 8.5pt;
+            padding: 6pt 10pt;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 3pt;
+        }
+        .severity-item {
+            display: flex;
+            align-items: center;
+            gap: 5pt;
+        }
+        .severity-dot {
+            width: 10pt;
+            height: 10pt;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .severity-dot.critical { background: #dc2626; }
+        .severity-dot.major { background: #f59e0b; }
+        .severity-dot.minor { background: #3b82f6; }
+        .severity-dot.advisory { background: #94a3b8; }
+
+        /* Notes section */
+        .notes-box {
+            border: 1px solid var(--border);
+            border-radius: 3pt;
+            padding: 10pt;
+            min-height: 60pt;
+            margin-bottom: 14pt;
+        }
+        .notes-box h3 {
+            font-size: 9pt;
+            font-weight: 600;
+            margin-bottom: 6pt;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.3pt;
+        }
+        .notes-lines {
+            border-bottom: 1px solid var(--border);
+            height: 18pt;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 16pt;
+            padding-top: 10pt;
+            border-top: 2px solid var(--red);
+            display: flex;
+            justify-content: space-between;
+            font-size: 7.5pt;
+            color: var(--text-light);
+        }
+        .footer a {
+            color: var(--red);
+            text-decoration: none;
+        }
+
+        /* Print button */
+        .print-bar {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 12pt;
+            font-size: 10pt;
+        }
+        .print-bar button {
+            background: var(--red);
+            color: white;
+            border: none;
+            padding: 8pt 24pt;
+            font-family: 'Inter', sans-serif;
+            font-size: 10pt;
+            font-weight: 600;
+            border-radius: 4pt;
+            cursor: pointer;
+            margin-right: 8pt;
+        }
+        .print-bar button:hover { opacity: 0.9; }
+        .print-bar span { opacity: 0.7; font-size: 9pt; }
+
+        /* Print styles */
+        @media print {
+            .print-bar { display: none; }
+            body { background: white; }
+            .page { padding: 10mm 15mm; max-width: none; }
+            .section { page-break-inside: avoid; }
+            .page-break { page-break-before: always; }
+        }
+
+        @page {
+            size: A4;
+            margin: 8mm;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="print-bar">
+        <button onclick="window.print()">Save as PDF / Print</button>
+        <span>Use your browser's print dialog &rarr; "Save as PDF" to download</span>
+    </div>
+
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <h1>&#128737; Fire Compliance Checklist</h1>
+                <p>For building managers, facilities managers, and responsible persons</p>
+            </div>
+            <div class="header-right">
+                <div class="logo-text">DE Fire Compliance</div>
+                <strong>defirecompliance.co.uk</strong><br>
+                info@defirecompliance.co.uk<br>
+                +44 7770 871782
+            </div>
+        </div>
+
+        <!-- Building info -->
+        <div class="info-fields">
+            <div class="info-field">
+                <label>Building / Site Name</label>
+                <div class="line"></div>
+            </div>
+            <div class="info-field">
+                <label>Address</label>
+                <div class="line"></div>
+            </div>
+            <div class="info-field">
+                <label>Inspector / Checked By</label>
+                <div class="line"></div>
+            </div>
+            <div class="info-field">
+                <label>Date of Inspection</label>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <!-- Severity key -->
+        <div class="severity-key">
+            <div class="severity-item"><div class="severity-dot critical"></div> <strong>Critical</strong> — Immediate action required</div>
+            <div class="severity-item"><div class="severity-dot major"></div> <strong>Major</strong> — Action within 7 days</div>
+            <div class="severity-item"><div class="severity-dot minor"></div> <strong>Minor</strong> — Action within 30 days</div>
+            <div class="severity-item"><div class="severity-dot advisory"></div> <strong>Advisory</strong> — Recommended improvement</div>
+        </div>
+
+        <!-- Section 1: Fire Door Visual Inspection -->
+        <div class="section">
+            <div class="section-header">
+                1. Fire Door — Visual Inspection
+                <span>Ref: BS 8214:2016 / Fire Safety Order 2005</span>
+            </div>
+            <table class="checklist">
+                <thead>
+                    <tr>
+                        <th class="item-num">#</th>
+                        <th class="item-desc">Check Item</th>
+                        <th class="item-check">Pass</th>
+                        <th class="item-check">Fail</th>
+                        <th class="item-notes">Notes / Severity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="item-num">1.1</td>
+                        <td>Door leaf in good condition — no damage, holes, or delamination<div class="sub-note">Check both faces and all edges</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">1.2</td>
+                        <td>Certification label / plug present and legible<div class="sub-note">Third-party cert mark (e.g. BWF-Certifire, BM TRADA)</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">1.3</td>
+                        <td>Gaps between door and frame within 3mm tolerance<div class="sub-note">Check top, latch side, hinge side. Threshold max 8mm (or 3mm if smoke seal required)</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">1.4</td>
+                        <td>Intumescent strips present and in good condition<div class="sub-note">Continuous run, not painted over, not missing sections</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">1.5</td>
+                        <td>Cold smoke seals present and in good condition<div class="sub-note">Required on all fire doors in residential common areas</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">1.6</td>
+                        <td>Minimum 3 hinges fitted, all fire-rated (CE marked)<div class="sub-note">Securely fixed, no missing screws, not bent or worn</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">1.7</td>
+                        <td>Self-closing device fitted and operational<div class="sub-note">Door must close fully from any angle and latch into frame</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">1.8</td>
+                        <td>Glazing is fire-rated and in good condition<div class="sub-note">Check for Georgian wired, Pyran, or marked fire glass. No cracks or failed seals</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">1.9</td>
+                        <td>"Fire Door Keep Shut" or "Fire Door Keep Locked" sign present<div class="sub-note">Legible, correct type, fixed to both sides if required</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">1.10</td>
+                        <td>Frame securely fixed and in good condition<div class="sub-note">No loose fixings, splits, rot, or gaps between frame and wall</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 2: Fire Door Functional Test -->
+        <div class="section">
+            <div class="section-header">
+                2. Fire Door — Functional Test
+            </div>
+            <table class="checklist">
+                <thead>
+                    <tr>
+                        <th class="item-num">#</th>
+                        <th class="item-desc">Check Item</th>
+                        <th class="item-check">Pass</th>
+                        <th class="item-check">Fail</th>
+                        <th class="item-notes">Notes / Severity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="item-num">2.1</td>
+                        <td>Door closes fully into frame under its own power<div class="sub-note">From fully open, 45°, and 15° positions</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">2.2</td>
+                        <td>Door latches securely — no bounce-back<div class="sub-note">Latch must engage in strike plate</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">2.3</td>
+                        <td>No obstructions preventing full closure<div class="sub-note">Wedges, door stops, hold-open devices (unless linked to fire alarm)</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">2.4</td>
+                        <td>Hold-open device (if fitted) is linked to fire alarm and releases on activation<div class="sub-note">Test by triggering alarm or manual release</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">2.5</td>
+                        <td>Door opens freely — no binding, dragging, or sticking</td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Page break -->
+        <div class="page-break"></div>
+
+        <!-- Section 3: Compartmentation & Fire Stopping -->
+        <div class="section">
+            <div class="section-header">
+                3. Compartmentation &amp; Fire Stopping
+                <span>Ref: Approved Document B / BS 9999</span>
+            </div>
+            <table class="checklist">
+                <thead>
+                    <tr>
+                        <th class="item-num">#</th>
+                        <th class="item-desc">Check Item</th>
+                        <th class="item-check">Pass</th>
+                        <th class="item-check">Fail</th>
+                        <th class="item-notes">Notes / Severity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="item-num">3.1</td>
+                        <td>Service penetrations through fire walls/floors are sealed<div class="sub-note">Pipes, cables, ducts, trays — check both sides of barrier</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">3.2</td>
+                        <td>Fire stopping material is appropriate and correctly installed<div class="sub-note">Intumescent sealant, batt, collars, wraps — third-party certified</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">3.3</td>
+                        <td>Riser cupboards — fire stopping intact at each floor level<div class="sub-note">No gaps, no missing fire stopping, access panels in place</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">3.4</td>
+                        <td>Ceiling voids — compartment barriers extend to underside of slab<div class="sub-note">No gaps above corridor/compartment walls</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">3.5</td>
+                        <td>No unauthorised alterations breaching compartment lines<div class="sub-note">New installations, removed walls, unplugged openings</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 4: Means of Escape -->
+        <div class="section">
+            <div class="section-header">
+                4. Means of Escape
+            </div>
+            <table class="checklist">
+                <thead>
+                    <tr>
+                        <th class="item-num">#</th>
+                        <th class="item-desc">Check Item</th>
+                        <th class="item-check">Pass</th>
+                        <th class="item-check">Fail</th>
+                        <th class="item-notes">Notes / Severity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="item-num">4.1</td>
+                        <td>Escape routes clear and unobstructed<div class="sub-note">No storage, furniture, or items narrowing corridors below 1m</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">4.2</td>
+                        <td>Final exit doors open without a key from inside<div class="sub-note">Panic hardware / push bars operational</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">4.3</td>
+                        <td>Emergency lighting operational<div class="sub-note">Check indicator LEDs, last test date recorded</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">4.4</td>
+                        <td>Fire exit and directional signs visible and illuminated<div class="sub-note">Green running man signs at every change of direction</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 5: Signage -->
+        <div class="section">
+            <div class="section-header">
+                5. Fire Signage
+            </div>
+            <table class="checklist">
+                <thead>
+                    <tr>
+                        <th class="item-num">#</th>
+                        <th class="item-desc">Check Item</th>
+                        <th class="item-check">Pass</th>
+                        <th class="item-check">Fail</th>
+                        <th class="item-notes">Notes / Severity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="item-num">5.1</td>
+                        <td>"Fire Door Keep Shut" on every fire door without a hold-open device</td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">5.2</td>
+                        <td>"Fire Door Keep Locked" on every locked fire door</td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">5.3</td>
+                        <td>Fire action notices posted in visible locations<div class="sub-note">At main entrance, each floor, near fire alarm call points</div></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">5.4</td>
+                        <td>Fire extinguisher ID signs present and correct type indicated</td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 6: Documentation -->
+        <div class="section">
+            <div class="section-header">
+                6. Documentation &amp; Records
+                <span>Ref: Fire Safety Order 2005, Article 9</span>
+            </div>
+            <table class="checklist">
+                <thead>
+                    <tr>
+                        <th class="item-num">#</th>
+                        <th class="item-desc">Check Item</th>
+                        <th class="item-check">Yes</th>
+                        <th class="item-check">No</th>
+                        <th class="item-notes">Notes / Action Required</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="item-num">6.1</td>
+                        <td>Current fire risk assessment on file (within last 12 months or after significant change)</td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">6.2</td>
+                        <td>Fire door inspection records on file</td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">6.3</td>
+                        <td>Remedial works log — actions tracked and closed out</td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">6.4</td>
+                        <td>Fire alarm test records up to date (weekly test)</td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">6.5</td>
+                        <td>Emergency lighting test records up to date (monthly flick test, annual 3-hour test)</td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                    <tr>
+                        <td class="item-num">6.6</td>
+                        <td>Fire evacuation drill conducted and recorded (at least annually)</td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-check"><span class="check-box"></span></td>
+                        <td class="item-notes"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Notes -->
+        <div class="notes-box">
+            <h3>Additional Notes / Priority Actions</h3>
+            <div class="notes-lines"></div>
+            <div class="notes-lines"></div>
+            <div class="notes-lines"></div>
+            <div class="notes-lines"></div>
+            <div class="notes-lines"></div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div>&copy; 2025 DE Fire Compliance. This checklist is provided for guidance only and does not constitute a formal fire door inspection report.</div>
+            <div>
+                <a href="https://defirecompliance.co.uk">defirecompliance.co.uk</a> &bull;
+                +44 7770 871782
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
