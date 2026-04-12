@@ -38,6 +38,7 @@
     { "source": "/blog/what-happens-if-you-fail-a-fire-door-inspection", "destination": "/blog/what-happens-if-you-fail-a-fire-door-inspection.html" },
     { "source": "/blog/fire-door-inspection-cost-uk", "destination": "/blog/fire-door-inspection-cost-uk.html" },
     { "source": "/blog/what-is-a-compartmentation-survey", "destination": "/blog/what-is-a-compartmentation-survey.html" },
-    { "source": "/blog/who-can-carry-out-fire-door-inspections-uk", "destination": "/blog/who-can-carry-out-fire-door-inspections-uk.html" }
+    { "source": "/blog/who-can-carry-out-fire-door-inspections-uk", "destination": "/blog/who-can-carry-out-fire-door-inspections-uk.html" },
+    { "source": "/blog", "destination": "/blog/index.html" }
   ]
 }
