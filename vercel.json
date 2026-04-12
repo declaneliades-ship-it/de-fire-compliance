@@ -39,6 +39,9 @@
     { "source": "/blog/fire-door-inspection-cost-uk", "destination": "/blog/fire-door-inspection-cost-uk.html" },
     { "source": "/blog/what-is-a-compartmentation-survey", "destination": "/blog/what-is-a-compartmentation-survey.html" },
     { "source": "/blog/who-can-carry-out-fire-door-inspections-uk", "destination": "/blog/who-can-carry-out-fire-door-inspections-uk.html" },
-    { "source": "/blog", "destination": "/blog/index.html" }
+    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/milton-keynes-fire-door-inspections", "destination": "/seo/milton-keynes.html" },
+    { "source": "/surrey-fire-door-inspections", "destination": "/seo/surrey.html" },
+    { "source": "/hertfordshire-fire-door-inspections", "destination": "/seo/hertfordshire.html" }
   ]
 }
