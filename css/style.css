@@ -1155,6 +1155,18 @@ a:hover { color: var(--color-accent-light); }
     .nav-links.active { right: 0; }
     .nav-links a { font-size: 1rem; opacity: 1; }
 
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.4);
+        z-index: 99;
+    }
+    .nav-overlay.active { display: block; }
+
     .services-grid,
     .sectors-grid,
     .process-grid {
