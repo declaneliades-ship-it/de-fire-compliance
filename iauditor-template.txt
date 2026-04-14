@@ -1,0 +1,307 @@
+iAUDITOR TEMPLATE — Fire Door Inspection
+DE Fire Compliance
+==========================================
+
+HOW TO SET THIS UP IN iAUDITOR
+--------------------------------
+1. Go to app.safetyculture.com → Templates → Create Template
+2. Add each section and question below in order
+3. Set response types as indicated
+4. Add your logo under Template Settings → Branding
+5. Save and publish to your mobile app
+6. Takes approx 30–45 minutes to build
+
+Template name: Fire Door Inspection — DE Fire Compliance
+Logo: DE Fire Compliance logo
+Report title: Fire Door Inspection Report
+
+
+===========================================
+SECTION 1: JOB DETAILS
+(Filled in once per inspection, not per door)
+===========================================
+
+Question: Site Name
+Response type: Text field
+Required: Yes
+
+Question: Site Address
+Response type: Text field
+Required: Yes
+
+Question: Client / Organisation
+Response type: Text field
+Required: Yes
+
+Question: Inspector Name
+Response type: Text field
+Required: Yes
+Default: Declan Ellis
+
+Question: Inspection Date
+Response type: Date
+Required: Yes
+Default: Today
+
+Question: Job Reference Number
+Response type: Text field
+Required: Yes
+Example / hint text: e.g. JOB-2026-001
+
+Question: Building Type
+Response type: Dropdown
+Options:
+  - Housing / Residential
+  - Care Home
+  - NHS / Healthcare
+  - School / Education
+  - Office / Commercial
+  - Industrial
+  - Mixed Use
+  - Other
+Required: No
+
+Question: Block / Phase / Floor Range
+Response type: Text field
+Required: No
+Hint: e.g. Block A, Phase 2, Floors 1–4
+
+Question: Site Contact Name
+Response type: Text field
+Required: No
+
+Question: Site Contact Phone
+Response type: Text field
+Required: No
+
+Question: Total Number of Doors in Scope
+Response type: Number
+Required: No
+Hint: Your full scope count — used for progress tracking
+
+
+===========================================
+SECTION 2: DOOR INSPECTION
+(Repeat this section for each door)
+===========================================
+
+Note: In iAuditor, use a "Repeatable Section" for this entire section so the inspector
+can tap "Add another door" and fill it in again for each door.
+
+--- Door Identification ---
+
+Question: Door ID / Reference
+Response type: Text field
+Required: Yes
+Hint: e.g. FD-001, D01, Flat 12 Front
+
+Question: Floor / Level
+Response type: Text field
+Required: Yes
+Hint: e.g. Ground Floor, Floor 2, Basement
+
+Question: Location Description
+Response type: Text field
+Required: Yes
+Hint: e.g. Stairwell lobby, Corridor outside Flat 12
+
+--- Door Checklist ---
+
+Question: Fire door present
+Response type: Yes / No
+Default: Yes
+Required: Yes
+
+Question: Certification label present (plug / intumescent label)
+Response type: Yes / No / N/A
+Required: Yes
+
+Question: Door leaf condition
+Response type: Dropdown
+Options:
+  - Good
+  - Minor damage (cosmetic only)
+  - Damaged (structural / affecting performance)
+Required: Yes
+
+Question: Frame condition
+Response type: Dropdown
+Options:
+  - Good
+  - Minor damage
+  - Damaged (affecting performance)
+Required: Yes
+
+Question: Gaps within tolerance (max 3mm head/jamb, 8mm threshold)
+Response type: Pass / Fail
+Required: Yes
+
+Question: Intumescent strips present and intact
+Response type: Yes / No
+Required: Yes
+
+Question: Smoke seals present and intact
+Response type: Yes / No
+Required: Yes
+
+Question: Hinges compliant (min. 3 hinges, correctly fitted, CE marked)
+Response type: Yes / No
+Required: Yes
+
+Question: Door closer present
+Response type: Yes / No
+Required: Yes
+
+Question: Door closer working correctly
+Response type: Yes / No / N/A
+Required: Yes
+
+Question: Door self-closes and latches fully without assistance
+Response type: Yes / No
+Required: Yes
+
+Question: Ironmongery compliant (handles, locks, letterbox etc.)
+Response type: Yes / No / N/A
+Required: Yes
+
+Question: Glazing compliant (if present — fire rated, sealed, undamaged)
+Response type: Yes / No / N/A
+Required: Yes
+
+Question: Signage present where required
+Response type: Yes / No / N/A
+Required: Yes
+
+--- Outcome ---
+
+Question: Door Outcome
+Response type: Dropdown
+Options:
+  - Pass
+  - Minor Fail (advisory — does not compromise compartmentation immediately)
+  - Major Fail (immediate action required — compartmentation compromised)
+Required: Yes
+
+--- Defects (tap to add) ---
+
+Question: Defect Tags
+Response type: Checkbox list (multi-select)
+Options:
+  - Missing smoke seals
+  - Damaged / absent closer
+  - Excessive gaps
+  - Damaged door leaf
+  - Damaged frame
+  - Missing certification label
+  - Hinges non-compliant
+  - Glazing non-compliant
+  - Missing / incorrect signage
+  - Fire stopping failure
+  - Door not self-closing
+  - Threshold gap excessive
+  - Intumescent strips missing or damaged
+Required: No
+
+--- Notes ---
+
+Question: Inspector Notes
+Response type: Text — long field
+Required: No
+Hint: Add defect details, measurements, observations, or remedial notes
+
+--- Photos ---
+
+Question: Photos
+Response type: Media / Photo
+Required: No
+Allow multiple: Yes
+Hint: Take photos of any defects, gaps, labels, closers, frames, or overview shots
+
+Note: iAuditor doesn't natively tag individual photos with categories.
+Workaround: add a short text note per photo in the caption, or use the label
+types below as a separate checkbox before each photo:
+  - Overview
+  - Gap measurement
+  - Hinge detail
+  - Closer detail
+  - Defect evidence
+  - Certification label
+  - Signage
+
+
+===========================================
+SECTION 3: INSPECTION SUMMARY
+(Filled in once at the end of the job)
+===========================================
+
+Question: Total Doors Inspected
+Response type: Number
+Required: Yes
+
+Question: Number of Doors — Pass
+Response type: Number
+Required: Yes
+
+Question: Number of Doors — Minor Fail
+Response type: Number
+Required: Yes
+
+Question: Number of Doors — Major Fail
+Response type: Number
+Required: Yes
+
+Question: Overall site condition summary
+Response type: Text — long field
+Required: No
+Hint: General observations about the building, fire stopping condition, common issues found
+
+Question: Urgent actions required?
+Response type: Yes / No
+Required: Yes
+
+Question: Urgent action details
+Response type: Text — long field
+Required: No
+Hint: Describe any items requiring immediate attention
+
+Question: Inspector signature
+Response type: Signature
+Required: Yes
+
+Question: Inspection complete
+Response type: Checkbox
+Label: I confirm this inspection record is complete and accurate
+Required: Yes
+
+
+===========================================
+REPORT SETTINGS (iAuditor Template Settings)
+===========================================
+
+Report title: Fire Door Inspection Report — [Site Name]
+Include: Company logo (top left)
+Include: Inspection date and job reference on cover page
+Include: Summary section
+Include: All photos inline with relevant door
+Include: Inspector signature
+Footer: DE Fire Compliance | defirecompliance.co.uk | +44 7770 871782
+Branding colour: (set to match your brand — suggested: dark red or navy)
+
+PDF output: Auto-generate after inspection is marked complete
+
+
+===========================================
+TIPS FOR USING iAUDITOR ON SITE
+===========================================
+
+- Download the template to your phone before arriving on site
+- Open the inspection and fill in Job Details before you start
+- Use the repeatable Door section — tap "Add Item" for each new door
+- Work through the checklist quickly using taps — most questions are yes/no or dropdown
+- Take photos as you go — camera opens directly inside the app
+- If you lose signal, iAuditor saves locally and syncs when back online
+- Mark the inspection complete when you're done — this triggers PDF generation
+- Send the PDF directly from iAuditor to the client
+
+Free tier: up to 10 inspections/month (enough to start)
+Paid tier: ~£24/month for unlimited inspections + advanced reporting
