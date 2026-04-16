@@ -219,50 +219,6 @@
         }
         .calc-error.visible { display: block; }
 
-        /* Upsells */
-        .upsell-section {
-            display: none;
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background: var(--color-bg);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-md);
-        }
-        .upsell-section.visible { display: block; }
-
-        .upsell-section h3 {
-            font-family: var(--font-heading);
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-
-        .upsell-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.5rem 0;
-        }
-
-        .upsell-item input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: var(--color-primary);
-            flex-shrink: 0;
-        }
-
-        .upsell-item label {
-            font-size: 0.9rem;
-            cursor: pointer;
-            margin-bottom: 0;
-        }
-
-        .upsell-item span {
-            display: block;
-            font-size: 0.78rem;
-            color: var(--color-text-light);
-            margin-top: 0.1rem;
-        }
-
         /* Lead capture */
         .lead-capture {
             display: none;
@@ -440,40 +396,6 @@
                     <p style="color: var(--color-text-light); font-size: 0.88rem;">Please call us on <a href="tel:+447770871782" style="font-weight: 600;">+44 7770 871782</a> or <a href="mailto:info@defirecompliance.co.uk">email us</a> to discuss.</p>
                 </div>
 
-                <!-- Upsells -->
-                <div class="upsell-section" id="upsellSection">
-                    <h3>While we&rsquo;re on site, we can also include:</h3>
-                    <div class="upsell-item">
-                        <input type="checkbox" id="upsell1" name="upsell_compartmentation">
-                        <div>
-                            <label for="upsell1">Compartmentation survey</label>
-                            <span>Check all penetrations and fire stopping in the building</span>
-                        </div>
-                    </div>
-                    <div class="upsell-item">
-                        <input type="checkbox" id="upsell2" name="upsell_exit">
-                        <div>
-                            <label for="upsell2">Final exit door check</label>
-                            <span>Ironmongery, panic hardware, and compliance</span>
-                        </div>
-                    </div>
-                    <div class="upsell-item">
-                        <input type="checkbox" id="upsell3" name="upsell_signage">
-                        <div>
-                            <label for="upsell3">Fire signage audit</label>
-                            <span>Ensure all mandatory signage is present and legible</span>
-                        </div>
-                    </div>
-                    <div class="upsell-item">
-                        <input type="checkbox" id="upsell4" name="upsell_contract">
-                        <div>
-                            <label for="upsell4">Ongoing compliance contract</label>
-                            <span>Scheduled inspections on a rolling basis</span>
-                        </div>
-                    </div>
-                    <p style="font-size: 0.82rem; color: var(--color-text-light); margin-top: 0.75rem;">Tick any that apply and we&rsquo;ll include them in your formal quote.</p>
-                </div>
-
                 <!-- Lead capture -->
                 <div class="lead-capture" id="leadCapture">
                     <h3>Get Your Fixed Quote + Free Sample Report</h3>
@@ -514,7 +436,13 @@
                         </div>
                         <div id="noCallbackNudge" style="display: none;">
                             <p style="font-size: 0.9rem; color: var(--color-text); margin-bottom: 0.75rem;">Want us to call you to walk through your quote? No waiting on hold &mdash; we call you.</p>
-                            <button type="button" id="postSubmitCallback" style="display: block; width: 100%; background: #059669; color: #fff; padding: 0.75rem 1.5rem; border-radius: var(--radius-sm); border: none; cursor: pointer; font-weight: 600; font-size: 0.9rem; text-align: center; font-family: var(--font-body);">Request a Callback &rarr;</button>
+                            <div id="postCallbackForm">
+                                <div class="form-group" id="postCallbackPhoneGroup" style="margin-bottom: 0.75rem; display: none;">
+                                    <label for="postCallbackPhone" style="font-size: 0.85rem; font-weight: 500; margin-bottom: 0.25rem; display: block;">Phone number *</label>
+                                    <input type="tel" id="postCallbackPhone" style="width: 100%; padding: 0.65rem 0.85rem; font-size: 0.9rem; border: 1.5px solid var(--color-border); border-radius: var(--radius-sm); font-family: var(--font-body);" placeholder="e.g. 07700 900000">
+                                </div>
+                                <button type="button" id="postSubmitCallback" style="display: block; width: 100%; background: #059669; color: #fff; padding: 0.75rem 1.5rem; border-radius: var(--radius-sm); border: none; cursor: pointer; font-weight: 600; font-size: 0.9rem; text-align: center; font-family: var(--font-body);">Request a Callback &rarr;</button>
+                            </div>
                             <div id="postCallbackConfirm" style="display: none; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: var(--radius-sm); padding: 1rem; margin-top: 0.75rem;">
                                 <p style="margin: 0; font-size: 0.9rem; color: #15803d;"><strong>&#10003; Callback requested</strong> &mdash; we&rsquo;ll be in touch shortly.</p>
                             </div>
@@ -608,14 +536,14 @@
             var errorEl = document.getElementById('calcError');
             var resultEl = document.getElementById('calcResult');
             var outsideEl = document.getElementById('calcOutside');
-            var upsellEl = document.getElementById('upsellSection');
+            // upsell section removed
             var leadEl = document.getElementById('leadCapture');
 
             // Reset
             errorEl.classList.remove('visible');
             resultEl.classList.remove('visible');
             outsideEl.classList.remove('visible');
-            upsellEl.classList.remove('visible');
+
             leadEl.classList.remove('visible');
 
             // Validate
@@ -657,7 +585,6 @@
             document.getElementById('resultPerDoor').textContent = '\u00A3' + perDoor + ' per door \u00B7 ' + doors + ' doors';
 
             resultEl.classList.add('visible');
-            upsellEl.classList.add('visible');
             leadEl.classList.add('visible');
 
             // Scroll to result
@@ -681,13 +608,6 @@
             leadBtn.textContent = 'Sending...';
             leadBtn.disabled = true;
 
-            // Gather upsells
-            var upsells = [];
-            if (document.getElementById('upsell1').checked) upsells.push('Compartmentation survey');
-            if (document.getElementById('upsell2').checked) upsells.push('Final exit door check');
-            if (document.getElementById('upsell3').checked) upsells.push('Fire signage audit');
-            if (document.getElementById('upsell4').checked) upsells.push('Ongoing compliance contract');
-
             var siteVisitChecked = document.getElementById('siteVisit').checked;
             var callbackChecked = document.getElementById('callbackRequest').checked;
             var callbackNotes = document.getElementById('callbackNotesInput').value.trim();
@@ -698,7 +618,6 @@
                 'Property type: ' + document.getElementById('propertyType').value,
                 'Location: ' + document.getElementById('location').value,
                 'Multi-site: ' + document.querySelector('input[name="multisite"]:checked').value,
-                upsells.length ? 'Add-ons requested: ' + upsells.join(', ') : '',
                 'Free site visit requested: ' + (siteVisitChecked ? 'Yes' : 'No'),
                 'Callback requested: ' + (callbackChecked ? 'Yes' : 'No'),
                 callbackNotes ? 'Callback notes: ' + callbackNotes : ''
@@ -754,11 +673,56 @@
         });
 
         // Post-submit callback button
-        document.getElementById('postSubmitCallback').addEventListener('click', function () {
-            this.style.display = 'none';
-            this.previousElementSibling.style.display = 'none';
-            document.getElementById('postCallbackConfirm').style.display = 'block';
-        });
+        (function () {
+            var phoneGroup = document.getElementById('postCallbackPhoneGroup');
+            var phoneInput = document.getElementById('postCallbackPhone');
+            var leadPhone = document.getElementById('leadPhone');
+
+            // Show phone field if they didn't provide one in the form
+            function checkPhoneNeeded() {
+                if (!leadPhone.value.trim()) {
+                    phoneGroup.style.display = 'block';
+                }
+            }
+
+            // Run check when nudge becomes visible (observer)
+            var nudge = document.getElementById('noCallbackNudge');
+            var obs = new MutationObserver(function () {
+                if (nudge.style.display !== 'none') checkPhoneNeeded();
+            });
+            obs.observe(nudge, { attributes: true, attributeFilter: ['style'] });
+
+            document.getElementById('postSubmitCallback').addEventListener('click', function () {
+                var phone = phoneInput.value.trim() || leadPhone.value.trim();
+                if (!phone) {
+                    phoneInput.style.borderColor = '#b91c1c';
+                    phoneInput.focus();
+                    return;
+                }
+                var btn = this;
+                btn.textContent = 'Sending...';
+                btn.disabled = true;
+
+                var name = document.getElementById('leadName').value.trim();
+                var email = document.getElementById('leadEmail').value.trim();
+
+                fetch('/api/enquiry', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        service: 'callback-request',
+                        source: '/quote-calculator',
+                        message: 'Post-submit callback request. Estimated price: ' + (document.getElementById('resultPrice').textContent || 'N/A')
+                    })
+                }).finally(function () {
+                    document.getElementById('postCallbackForm').style.display = 'none';
+                    document.getElementById('postCallbackConfirm').style.display = 'block';
+                });
+            });
+        })();
     })();
     </script>
 </body>
