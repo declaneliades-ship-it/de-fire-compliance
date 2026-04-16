@@ -687,15 +687,129 @@ a:hover { color: var(--color-accent-light); }
 }
 
 /* ===================================
-   Reports
+   Sample Offer
    =================================== */
-.reports { background: var(--color-bg); }
+.sample-offer { background: var(--color-bg); }
 
-.reports-layout {
+.sample-offer-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-xl);
     align-items: center;
+}
+
+.sample-offer-content h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    color: var(--color-heading);
+    margin-bottom: var(--space-sm);
+}
+
+.sample-offer-content > p {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: var(--space-md);
+}
+
+.sample-offer-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--space-lg);
+}
+
+.sample-offer-list li {
+    font-size: 0.92rem;
+    color: var(--color-text);
+    line-height: 2.2;
+}
+
+/* ===================================
+   Outcomes / What We Do
+   =================================== */
+.what-we-do { background: var(--color-white); }
+
+.outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.outcome-card {
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition);
+}
+.outcome-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.outcome-icon {
+    font-size: 1.8rem;
+    margin-bottom: var(--space-sm);
+}
+
+.outcome-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-heading);
+}
+
+.outcome-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+}
+
+/* ===================================
+   3-step Process Grid
+   =================================== */
+.process-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* ===================================
+   Example Project / Proof
+   =================================== */
+.example-project { background: var(--color-bg); }
+
+.proof-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xl);
+    flex-wrap: wrap;
+    margin-top: var(--space-lg);
+}
+
+.proof-stat {
+    text-align: center;
+    padding: var(--space-lg) var(--space-xl);
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    min-width: 180px;
+}
+
+.proof-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.proof-label {
+    font-size: 0.88rem;
+    color: var(--color-text-light);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
 .reports-content h2 {
@@ -1249,11 +1363,18 @@ a:hover { color: var(--color-accent-light); }
     .sectors-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    .process-grid {
+    .process-grid,
+    .process-grid-3 {
         grid-template-columns: repeat(2, 1fr);
     }
     .why-us-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .outcomes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .sample-offer-layout {
+        grid-template-columns: 1fr;
     }
     .reports-layout {
         grid-template-columns: 1fr;
@@ -1304,7 +1425,9 @@ a:hover { color: var(--color-accent-light); }
     .services-grid,
     .sectors-grid,
     .process-grid,
-    .why-us-grid {
+    .process-grid-3,
+    .why-us-grid,
+    .outcomes-grid {
         grid-template-columns: 1fr;
     }
 
