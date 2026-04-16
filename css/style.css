@@ -771,6 +771,8 @@ a:hover { color: var(--color-accent-light); }
    =================================== */
 .process-grid-3 {
     grid-template-columns: repeat(3, 1fr);
+    max-width: 960px;
+    margin: 0 auto;
 }
 
 /* ===================================
