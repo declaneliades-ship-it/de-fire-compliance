@@ -349,7 +349,7 @@
                 <li><a href="/services/fire-stopping-compartmentation">Fire Stopping</a></li>
                 <li><a href="/quote-calculator">Quote Calculator</a></li>
                 <li><a href="/blog">Articles</a></li>
-                <li><a href="/quote-calculator" class="btn btn-nav">Get Instant Quote</a></li>
+                <li><a href="/quote-calculator#calculator" class="btn btn-nav">Get Instant Quote</a></li>
             </ul>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span>
@@ -370,7 +370,7 @@
     </header>
 
     <!-- Calculator -->
-    <section class="section calc-section">
+    <section class="section calc-section" id="calculator">
         <div class="container calc-container">
             <div class="calc-card">
                 <h2>Get Your Estimate</h2>
@@ -589,6 +589,14 @@
 
     <script src="/js/main.js"></script>
     <script>
+    // Auto-scroll to calculator if hash present
+    if (window.location.hash === '#calculator') {
+        window.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                document.getElementById('calculator').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        });
+    }
     (function () {
         var calcBtn = document.getElementById('calcBtn');
         var leadBtn = document.getElementById('leadBtn');

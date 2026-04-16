@@ -40,8 +40,8 @@ export default async function handler(req, res) {
   const { error: dbError } = await supabase.from('enquiries').insert(row);
 
   if (dbError) {
-    console.error('Supabase insert error:', dbError);
-    return res.status(500).json({ error: 'Failed to store enquiry' });
+    console.error('Supabase insert error:', JSON.stringify(dbError));
+    // Continue to send emails even if DB fails
   }
 
   // --- Send emails via Resend ---
