@@ -89,11 +89,9 @@ export default async function handler(req, res) {
           <h2 style="color:#b91c1c;margin-bottom:8px">Thank You, ${escapeHtml(row.name)}</h2>
           ${estimatedPrice ? `<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:16px 20px;margin:16px 0;text-align:center"><p style="margin:0 0 4px;font-size:13px;color:#6b7280">Your estimated project cost</p><p style="margin:0;font-size:28px;font-weight:700;color:#059669">${escapeHtml(estimatedPrice)}</p><p style="margin:4px 0 0;font-size:12px;color:#9ca3af">Final price confirmed after a brief site discussion</p></div>` : ''}
           <p style="font-size:15px;line-height:1.7;color:#475569">We've received your quote request and will be in touch within <strong>24 hours</strong> with a full written quote${estimatedPrice ? ' confirming this estimate' : ''}.</p>
-          <hr style="border:none;border-top:1px solid #e2e8f0;margin:24px 0">
-          <p style="font-size:14px;color:#475569;margin-bottom:16px">Want to move faster? Most clients book a quick 15-minute call so we can confirm the scope and get you on the schedule.</p>
-          <a href="https://cal.com/defirecompliance/15min" style="display:inline-block;background:#b91c1c;color:#fff;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px">Book a Free 15-Min Call &rarr;</a>
-          <hr style="border:none;border-top:1px solid #e2e8f0;margin:24px 0">
-          <p style="font-size:14px;color:#475569">Or call us: <strong><a href="tel:+447770871782" style="color:#b91c1c">+44 7770 871782</a></strong></p>
+          ${row.message && row.message.includes('Callback requested: Yes') ? '<div style=\"background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px 18px;margin:16px 0\"><p style=\"margin:0;font-size:14px;color:#15803d\"><strong>&#9742; Callback requested</strong> &mdash; we will call you within 24 hours to walk through your quote and answer any questions.</p></div>' : ''}
+          <hr style=\"border:none;border-top:1px solid #e2e8f0;margin:24px 0\">
+          <p style=\"font-size:14px;color:#475569\">Questions in the meantime? Just reply to this email or call us: <strong><a href=\"tel:+447770871782\" style=\"color:#b91c1c\">+44 7770 871782</a></strong></p>
           <p style="font-size:13px;color:#94a3b8;margin-top:24px">DE Fire Compliance — Fire door inspections, compartmentation surveys, and compliance support. FDIS-qualified reports.<br>A trading name of DE Site Solutions Ltd. Company number: 16474802.</p>
         </div>
       `,
