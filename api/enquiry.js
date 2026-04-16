@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, phone, organisation, sector, doors, service, message, source } = req.body || {};
+  const { name, email, phone, organisation, sector, doors, service, message, source, estimatedPrice } = req.body || {};
 
   // --- Validation ---
   if (!name || typeof name !== 'string' || name.trim().length < 1) {
@@ -68,6 +68,7 @@ export default async function handler(req, res) {
           <tr><td style="padding:6px 16px 6px 0;font-weight:bold;color:#64748b">Approx Doors</td><td style="padding:6px 0">${escapeHtml(row.doors || '—')}</td></tr>
           <tr><td style="padding:6px 16px 6px 0;font-weight:bold;color:#64748b">Service</td><td style="padding:6px 0">${escapeHtml(serviceLabel)}</td></tr>
           <tr><td style="padding:6px 16px 6px 0;font-weight:bold;color:#64748b">Source Page</td><td style="padding:6px 0">${escapeHtml(row.source || '/')}</td></tr>
+          ${estimatedPrice ? `<tr><td style="padding:6px 16px 6px 0;font-weight:bold;color:#64748b">Estimated Price</td><td style="padding:6px 0;font-size:16px;font-weight:700;color:#059669">${escapeHtml(estimatedPrice)}</td></tr>` : ''}
         </table>
         ${row.message ? `<h3 style="margin:20px 0 8px">Message</h3><p style="white-space:pre-wrap;font-size:14px;color:#1e293b">${escapeHtml(row.message)}</p>` : ''}
       `,
@@ -86,9 +87,13 @@ export default async function handler(req, res) {
       html: `
         <div style="font-family:sans-serif;max-width:560px;margin:0 auto;color:#1e293b">
           <h2 style="color:#b91c1c;margin-bottom:8px">Thank You, ${escapeHtml(row.name)}</h2>
-          <p style="font-size:15px;line-height:1.7;color:#475569">We've received your enquiry and will review your requirements promptly. You can expect a response within <strong>24 hours</strong> with a clear, no-obligation quote.</p>
+          ${estimatedPrice ? `<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:16px 20px;margin:16px 0;text-align:center"><p style="margin:0 0 4px;font-size:13px;color:#6b7280">Your estimated project cost</p><p style="margin:0;font-size:28px;font-weight:700;color:#059669">${escapeHtml(estimatedPrice)}</p><p style="margin:4px 0 0;font-size:12px;color:#9ca3af">Final price confirmed after a brief site discussion</p></div>` : ''}
+          <p style="font-size:15px;line-height:1.7;color:#475569">We've received your quote request and will be in touch within <strong>24 hours</strong> with a full written quote${estimatedPrice ? ' confirming this estimate' : ''}.</p>
           <hr style="border:none;border-top:1px solid #e2e8f0;margin:24px 0">
-          <p style="font-size:14px;color:#475569">In the meantime, if you have any questions feel free to call us on <strong>+44 7770 871782</strong> or reply to this email.</p>
+          <p style="font-size:14px;color:#475569;margin-bottom:16px">Want to move faster? Most clients book a quick 15-minute call so we can confirm the scope and get you on the schedule.</p>
+          <a href="https://cal.com/defirecompliance/15min" style="display:inline-block;background:#b91c1c;color:#fff;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px">Book a Free 15-Min Call &rarr;</a>
+          <hr style="border:none;border-top:1px solid #e2e8f0;margin:24px 0">
+          <p style="font-size:14px;color:#475569">Or call us: <strong><a href="tel:+447770871782" style="color:#b91c1c">+44 7770 871782</a></strong></p>
           <p style="font-size:13px;color:#94a3b8;margin-top:24px">DE Fire Compliance — Fire door inspections, compartmentation surveys, and compliance support. FDIS-qualified reports.<br>A trading name of DE Site Solutions Ltd. Company number: 16474802.</p>
         </div>
       `,
