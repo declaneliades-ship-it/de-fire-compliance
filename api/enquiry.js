@@ -82,6 +82,7 @@ export default async function handler(req, res) {
   try {
     await resend.emails.send({
       from: 'DE Fire Compliance <noreply@defirecompliance.co.uk>',
+      replyTo: 'info@defirecompliance.co.uk',
       to: row.email,
       subject: 'Thank you for your enquiry — DE Fire Compliance',
       html: `
@@ -91,7 +92,7 @@ export default async function handler(req, res) {
           <p style="font-size:15px;line-height:1.7;color:#475569">We've received your quote request and will be in touch within <strong>24 hours</strong> with a full written quote${estimatedPrice ? ' confirming this estimate' : ''}.</p>
           ${row.message && row.message.includes('Callback requested: Yes') ? '<div style=\"background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px 18px;margin:16px 0\"><p style=\"margin:0;font-size:14px;color:#15803d\"><strong>&#9742; Callback requested</strong> &mdash; we will call you within 24 hours to walk through your quote and answer any questions.</p></div>' : ''}
           <hr style=\"border:none;border-top:1px solid #e2e8f0;margin:24px 0\">
-          <p style=\"font-size:14px;color:#475569\">Questions in the meantime? Just reply to this email or call us: <strong><a href=\"tel:+447770871782\" style=\"color:#b91c1c\">+44 7770 871782</a></strong></p>
+          <p style=\"font-size:14px;color:#475569\">Questions in the meantime? Reply to this email at <strong><a href=\"mailto:info@defirecompliance.co.uk\" style=\"color:#b91c1c\">info@defirecompliance.co.uk</a></strong> or call us: <strong><a href=\"tel:+447770871782\" style=\"color:#b91c1c\">+44 7770 871782</a></strong></p>
           <p style="font-size:13px;color:#94a3b8;margin-top:24px">DE Fire Compliance — Fire door inspections, compartmentation surveys, and compliance support. FDIS-qualified reports.<br>A trading name of DE Site Solutions Ltd. Company number: 16474802.</p>
         </div>
       `,

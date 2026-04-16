@@ -325,10 +325,32 @@ a:hover { color: var(--color-accent-light); }
 
 .hero-cta {
     display: flex;
-    gap: var(--space-sm);
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
     margin-bottom: var(--space-xl);
+}
+
+.btn-hero-cta {
+    padding: 1.1rem 2.8rem !important;
+    font-size: 1.15rem !important;
+    box-shadow: 0 4px 24px rgba(185, 28, 28, 0.35);
+    animation: cta-pulse 2.5s ease-in-out infinite;
+}
+.btn-hero-cta:hover {
+    box-shadow: 0 6px 32px rgba(185, 28, 28, 0.5);
+    transform: translateY(-2px);
+}
+
+@keyframes cta-pulse {
+    0%, 100% { box-shadow: 0 4px 24px rgba(185, 28, 28, 0.35); }
+    50% { box-shadow: 0 4px 32px rgba(185, 28, 28, 0.55); }
+}
+
+.hero-cta-sub {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
 }
 
 .hero-trust {
@@ -555,6 +577,113 @@ a:hover { color: var(--color-accent-light); }
     font-size: 0.88rem;
     color: var(--color-text-light);
     line-height: 1.7;
+}
+
+/* ===================================
+   Why Choose Us
+   =================================== */
+.why-us { background: var(--color-bg); }
+
+.why-us-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+}
+
+.why-us-item {
+    text-align: center;
+    padding: var(--space-lg) var(--space-md);
+    border-radius: var(--radius-md);
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition);
+}
+.why-us-item:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+}
+
+.why-us-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-sm);
+}
+
+.why-us-item h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-heading);
+}
+
+.why-us-item p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+}
+
+/* ===================================
+   Compliance Risk
+   =================================== */
+.compliance-risk {
+    background: linear-gradient(135deg, var(--color-bg-dark) 0%, #1e293b 100%);
+    color: var(--color-white);
+}
+
+.compliance-risk-content {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.compliance-risk-content h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--color-white);
+    margin-bottom: var(--space-sm);
+}
+
+.compliance-risk-content > p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+    margin-bottom: var(--space-lg);
+}
+
+.risk-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.risk-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+}
+
+.risk-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+}
+
+.risk-list li strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--color-white);
+    margin-bottom: 0.25rem;
+}
+
+.risk-list li span {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
 }
 
 /* ===================================
@@ -1123,6 +1252,9 @@ a:hover { color: var(--color-accent-light); }
     .process-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .why-us-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
     .reports-layout {
         grid-template-columns: 1fr;
     }
@@ -1171,7 +1303,8 @@ a:hover { color: var(--color-accent-light); }
 
     .services-grid,
     .sectors-grid,
-    .process-grid {
+    .process-grid,
+    .why-us-grid {
         grid-template-columns: 1fr;
     }
 
