@@ -770,9 +770,11 @@ a:hover { color: var(--color-accent-light); }
    3-step Process Grid
    =================================== */
 .process-grid-3 {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    max-width: 960px;
-    margin: 0 auto;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ===================================
