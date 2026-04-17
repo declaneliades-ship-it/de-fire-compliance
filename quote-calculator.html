@@ -346,6 +346,7 @@
                             <option value="housing-association">Housing Association / Residential Block</option>
                             <option value="care-home">Care Home / Healthcare</option>
                             <option value="commercial">Commercial / Office</option>
+                            <option value="mixed-use">Mixed Use</option>
                             <option value="education">School / Education</option>
                             <option value="industrial">Industrial / Warehouse</option>
                             <option value="other">Other</option>
@@ -379,6 +380,17 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label for="urgency">Urgency (optional)</label>
+                        <select id="urgency">
+                            <option value="">Select timeframe</option>
+                            <option value="urgent">Urgent &mdash; within 1 week</option>
+                            <option value="soon">Soon &mdash; within 2&ndash;4 weeks</option>
+                            <option value="planned">Planned &mdash; 1&ndash;3 months</option>
+                            <option value="exploring">Just exploring options</option>
+                        </select>
+                    </div>
+
                     <button type="button" class="calc-btn" id="calcBtn">Calculate My Quote</button>
                 </div>
 
@@ -386,9 +398,10 @@
 
                 <!-- Result -->
                 <div class="calc-result" id="calcResult">
+                    <p style="font-size: 0.82rem; opacity: 0.8; margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.06em;">Estimated Project Cost</p>
                     <div class="result-price" id="resultPrice"></div>
                     <div class="result-per-door" id="resultPerDoor"></div>
-                    <div class="result-note">This is a no-obligation estimate based on standard day-rate pricing.<br>Final price confirmed after a brief site discussion. Multi-site discounts available.</div>
+                    <div class="result-note">Based on similar projects, your fire door inspection is likely to fall within this range depending on access, layout, and site complexity.<br>Final price confirmed after a brief site discussion.</div>
                 </div>
 
                 <!-- Outside coverage -->
@@ -510,7 +523,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 DE Fire Compliance. All rights reserved.</p>
+                <p>&copy; 2026 DE Fire Compliance. All rights reserved.</p>
                 <p class="footer-legal">DE Fire Compliance is a trading name of DE Site Solutions Ltd. Registered in England &amp; Wales. Company number: 16474802. Registered address: Coach House Bear Lane, Hare Hatch, Reading, RG10 9XR.</p>
             </div>
         </div>
@@ -570,20 +583,23 @@
                 return;
             }
 
-            // Calculate price
-            var price;
+            // Calculate price range
+            var basePrice;
             if (doors <= 28) {
-                price = Math.max(150, doors * 12);
+                basePrice = Math.max(150, doors * 12);
             } else if (doors <= 60) {
-                price = doors * 10;
+                basePrice = doors * 10;
             } else {
-                price = doors * 9;
+                basePrice = doors * 9;
             }
 
-            var perDoor = (price / doors).toFixed(2);
+            var lowPrice = basePrice;
+            var highPrice = Math.round(basePrice * 1.25);
+            var perDoorLow = (lowPrice / doors).toFixed(2);
+            var perDoorHigh = (highPrice / doors).toFixed(2);
 
-            document.getElementById('resultPrice').textContent = '\u00A3' + price.toLocaleString('en-GB');
-            document.getElementById('resultPerDoor').textContent = '\u00A3' + perDoor + ' per door \u00B7 ' + doors + ' doors';
+            document.getElementById('resultPrice').textContent = '\u00A3' + lowPrice.toLocaleString('en-GB') + ' \u2013 \u00A3' + highPrice.toLocaleString('en-GB');
+            document.getElementById('resultPerDoor').textContent = '\u00A3' + perDoorLow + ' \u2013 \u00A3' + perDoorHigh + ' per door \u00B7 ' + doors + ' doors';
 
             resultEl.classList.add('visible');
             leadEl.classList.add('visible');
@@ -614,11 +630,15 @@
             var callbackNotes = document.getElementById('callbackNotesInput').value.trim();
             var estimatedPrice = document.getElementById('resultPrice').textContent;
 
+            var urgencyEl = document.getElementById('urgency');
+            var urgencyVal = urgencyEl ? urgencyEl.value : '';
+
             var contextMsg = [
                 'Estimated price: ' + estimatedPrice,
                 'Property type: ' + document.getElementById('propertyType').value,
                 'Location: ' + document.getElementById('location').value,
                 'Multi-site: ' + document.querySelector('input[name="multisite"]:checked').value,
+                urgencyVal ? 'Urgency: ' + urgencyVal : '',
                 'Free site visit requested: ' + (siteVisitChecked ? 'Yes' : 'No'),
                 'Callback requested: ' + (callbackChecked ? 'Yes' : 'No'),
                 callbackNotes ? 'Callback notes: ' + callbackNotes : ''
