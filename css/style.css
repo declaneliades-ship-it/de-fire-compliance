@@ -1368,8 +1368,7 @@ a:hover { color: var(--color-accent-light); }
     .sectors-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    .process-grid,
-    .process-grid-3 {
+    .process-grid {
         grid-template-columns: repeat(2, 1fr);
     }
     .why-us-grid {
