@@ -2,6 +2,12 @@
    DE Fire Compliance — Main JS
    =================================== */
 
+// Scroll to top on page load/refresh
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 document.addEventListener('DOMContentLoaded', function () {
 
     // --- Navbar scroll effect ---
