@@ -332,8 +332,8 @@ a:hover { color: var(--color-accent-light); }
 }
 
 .btn-hero-cta {
-    padding: 1.2rem 3.2rem !important;
-    font-size: 1.2rem !important;
+    padding: 1.4rem 3.8rem !important;
+    font-size: 1.3rem !important;
     box-shadow: 0 4px 24px rgba(185, 28, 28, 0.35);
     animation: cta-pulse 2.5s ease-in-out infinite;
 }
@@ -558,6 +558,9 @@ a:hover { color: var(--color-accent-light); }
 .process-step {
     text-align: center;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .step-number {
@@ -571,7 +574,8 @@ a:hover { color: var(--color-accent-light); }
     justify-content: center;
     font-family: var(--font-heading);
     font-size: 1.2rem;
-    margin: 0 auto var(--space-sm);
+    margin-bottom: var(--space-sm);
+    flex-shrink: 0;
 }
 
 .process-step h3 {

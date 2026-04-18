@@ -6,8 +6,22 @@
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
+// Clear any hash that would cause the browser to jump to an anchor
+if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+}
 window.scrollTo(0, 0);
+document.documentElement.scrollTop = 0;
+document.body.scrollTop = 0;
 window.addEventListener('load', function () {
+    setTimeout(function () {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+    }, 0);
+});
+// Also catch DOMContentLoaded for early scroll
+document.addEventListener('DOMContentLoaded', function () {
     window.scrollTo(0, 0);
 });
 
