@@ -550,9 +550,10 @@ a:hover { color: var(--color-accent-light); }
 
 .process-grid-3 {
     grid-template-columns: repeat(3, 1fr);
-    max-width: 860px;
+    max-width: 960px;
     margin-left: auto;
     margin-right: auto;
+    justify-content: center;
 }
 
 .process-step {
