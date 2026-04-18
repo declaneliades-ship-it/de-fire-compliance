@@ -1333,6 +1333,12 @@ a:hover { color: var(--color-accent-light); }
     line-height: 1.7;
 }
 
+.footer-about {
+    margin-top: 0.5rem !important;
+    color: rgba(255,255,255,0.3) !important;
+    font-size: 0.78rem !important;
+}
+
 .footer h4 {
     font-family: var(--font-heading);
     font-size: 0.95rem;
