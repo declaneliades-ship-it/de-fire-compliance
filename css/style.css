@@ -1325,6 +1325,13 @@ a:hover { color: var(--color-accent-light); }
     border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
+.footer-logo {
+    height: 44px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+}
+
 .footer-brand p {
     margin-top: var(--space-sm);
     font-size: 0.82rem;
