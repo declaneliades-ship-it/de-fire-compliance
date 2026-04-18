@@ -328,7 +328,7 @@ a:hover { color: var(--color-accent-light); }
     flex-direction: column;
     align-items: center;
     gap: 0.4rem;
-    margin-bottom: var(--space-md);
+    margin-bottom: 0.5rem;
 }
 
 .btn-hero-cta {
@@ -776,17 +776,6 @@ a:hover { color: var(--color-accent-light); }
     font-size: 0.9rem;
     color: var(--color-text-light);
     line-height: 1.7;
-}
-
-/* ===================================
-   3-step Process Grid
-   =================================== */
-.process-grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /* ===================================
