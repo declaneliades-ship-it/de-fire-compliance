@@ -332,8 +332,8 @@ a:hover { color: var(--color-accent-light); }
 }
 
 .btn-hero-cta {
-    padding: 1.4rem 3.8rem !important;
-    font-size: 1.3rem !important;
+    padding: 1.6rem 4.5rem !important;
+    font-size: 1.45rem !important;
     box-shadow: 0 4px 24px rgba(185, 28, 28, 0.35);
     animation: cta-pulse 2.5s ease-in-out infinite;
 }
@@ -348,7 +348,7 @@ a:hover { color: var(--color-accent-light); }
 }
 
 .hero-cta-sub {
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: rgba(255,255,255,0.5);
     font-weight: 400;
 }
