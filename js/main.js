@@ -2,11 +2,14 @@
    DE Fire Compliance — Main JS
    =================================== */
 
-// Scroll to top on page load/refresh
+// Scroll to top on page load/refresh (override browser scroll restoration + hash anchors)
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
 window.scrollTo(0, 0);
+window.addEventListener('load', function () {
+    window.scrollTo(0, 0);
+});
 
 document.addEventListener('DOMContentLoaded', function () {
 
