@@ -1339,6 +1339,22 @@ a:hover { color: var(--color-accent-light); }
     font-size: 0.78rem !important;
 }
 
+.footer-founder {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: var(--space-sm);
+}
+
+.footer-founder-photo {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid rgba(255,255,255,0.15);
+}
+
 .footer h4 {
     font-family: var(--font-heading);
     font-size: 0.95rem;
