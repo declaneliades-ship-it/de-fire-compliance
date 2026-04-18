@@ -327,8 +327,8 @@ a:hover { color: var(--color-accent-light); }
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
-    margin-bottom: var(--space-xl);
+    gap: 0.4rem;
+    margin-bottom: var(--space-md);
 }
 
 .btn-hero-cta {
@@ -863,9 +863,9 @@ a:hover { color: var(--color-accent-light); }
     color: var(--color-text-light);
 }
 
-/* Report preview card */
+/* Report preview card (old — overridden by later block) */
 .report-preview {
-    background: var(--color-bg-dark);
+    background: var(--color-white);
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-lg);
