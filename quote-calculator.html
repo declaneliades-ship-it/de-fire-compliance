@@ -279,6 +279,8 @@
         @media (max-width: 768px) {
             .calc-card { padding: 1.5rem; }
             .result-price { font-size: 2.2rem; }
+            #pricing [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+            #pricing [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
         }
     </style>
     <!-- Microsoft Clarity -->
@@ -468,6 +470,56 @@
         </div>
     </section>
 
+    <!-- Pricing Section -->
+    <section class="section" id="pricing" style="background: var(--color-bg);">
+        <div class="container" style="max-width: 900px;">
+            <div style="text-align: center; margin-bottom: 2.5rem;">
+                <span class="section-tag">Pricing</span>
+                <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 0.75rem;">Simple, Transparent Pricing</h2>
+                <p style="color: var(--color-text-light); max-width: 600px; margin: 0 auto; line-height: 1.7;">No hidden fees. No call-out charges. Just clear per-door rates based on the size of your project.</p>
+            </div>
+
+            <!-- Pricing Tiers -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
+                <div style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2rem 1.5rem; text-align: center;">
+                    <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-light); margin-bottom: 0.5rem;">1 &ndash; 25 Doors</p>
+                    <p style="font-family: var(--font-heading); font-size: 2.4rem; color: var(--color-text); margin-bottom: 0.25rem;">&pound;15</p>
+                    <p style="font-size: 0.85rem; color: var(--color-text-light);">per door</p>
+                </div>
+                <div style="background: var(--color-white); border: 2px solid var(--color-primary); border-radius: var(--radius-lg); padding: 2rem 1.5rem; text-align: center; position: relative;">
+                    <span style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: #fff; font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.75rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.04em;">Most Common</span>
+                    <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-light); margin-bottom: 0.5rem;">26 &ndash; 75 Doors</p>
+                    <p style="font-family: var(--font-heading); font-size: 2.4rem; color: var(--color-text); margin-bottom: 0.25rem;">&pound;13 &ndash; &pound;14</p>
+                    <p style="font-size: 0.85rem; color: var(--color-text-light);">per door</p>
+                </div>
+                <div style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2rem 1.5rem; text-align: center;">
+                    <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-light); margin-bottom: 0.5rem;">75+ Doors</p>
+                    <p style="font-family: var(--font-heading); font-size: 2.4rem; color: var(--color-text); margin-bottom: 0.25rem;">&pound;11 &ndash; &pound;12</p>
+                    <p style="font-size: 0.85rem; color: var(--color-text-light);">per door</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-size: 0.82rem; color: var(--color-text-light); margin-bottom: 2rem;">Minimum site charge of &pound;150 applies. Every site is different &mdash; final pricing depends on access, layout, and door condition. We&rsquo;ll always confirm a fixed price before any work begins.</p>
+
+            <!-- Reinspection & Add-ons -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <h3 style="font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 0.5rem;">Reinspection Pricing</h3>
+                    <p style="font-size: 0.88rem; color: var(--color-text-light); line-height: 1.7;">Follow-up inspections on previously assessed doors are charged at a reduced rate &mdash; typically 40&ndash;50% less than the initial inspection. Ideal for annual compliance checks.</p>
+                </div>
+                <div style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <h3 style="font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 0.5rem;">Optional Add-ons</h3>
+                    <ul style="font-size: 0.88rem; color: var(--color-text-light); line-height: 1.8; padding-left: 1.1rem; margin: 0;">
+                        <li>Remedial works scheduling &amp; management</li>
+                        <li>Fire stopping &amp; compartmentation surveys</li>
+                        <li>Ongoing compliance programmes</li>
+                        <li>Digital asset register setup</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Callback CTA -->
     <section class="section" style="background: linear-gradient(135deg, #059669 0%, #047857 100%); color: var(--color-white); text-align: center;">
         <div class="container" style="max-width: 650px;">
@@ -586,17 +638,18 @@
             }
 
             // Calculate price range
-            var basePrice;
-            if (doors <= 28) {
-                basePrice = Math.max(150, doors * 12);
-            } else if (doors <= 60) {
-                basePrice = doors * 10;
+            var lowPrice, highPrice;
+            if (doors <= 25) {
+                lowPrice = Math.max(150, doors * 15);
+                highPrice = lowPrice;
+            } else if (doors <= 75) {
+                lowPrice = doors * 13;
+                highPrice = doors * 14;
             } else {
-                basePrice = doors * 9;
+                lowPrice = doors * 11;
+                highPrice = doors * 12;
             }
 
-            var lowPrice = basePrice;
-            var highPrice = Math.round(basePrice * 1.25);
             var perDoorLow = (lowPrice / doors).toFixed(2);
             var perDoorHigh = (highPrice / doors).toFixed(2);
 

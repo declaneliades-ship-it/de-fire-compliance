@@ -313,6 +313,7 @@ a:hover { color: var(--color-accent-light); }
     color: var(--color-white);
     line-height: 1.12;
     margin-bottom: var(--space-md);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.3);
 }
 
 .hero-subtitle {
@@ -1706,7 +1707,7 @@ a:hover { color: var(--color-accent-light); }
     inset: 0;
     background-size: cover;
     background-position: center;
-    opacity: 0.18;
+    opacity: 0.22;
     z-index: 0;
 }
 
