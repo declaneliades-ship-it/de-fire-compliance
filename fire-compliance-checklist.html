@@ -202,8 +202,62 @@
             margin-top: 0.5rem;
         }
 
+        .first-visit-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .first-visit-card {
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            background: var(--color-bg);
+            padding: 1rem;
+        }
+
+        .first-visit-card h5 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 0.45rem;
+        }
+
+        .first-visit-card ul {
+            margin: 0;
+            font-size: 0.86rem;
+            line-height: 1.7;
+            padding-left: 1rem;
+        }
+
+        .faq-list {
+            margin-top: 1rem;
+            display: grid;
+            gap: 0.65rem;
+        }
+
+        .faq-row {
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            background: var(--color-white);
+            padding: 0.85rem 1rem;
+        }
+
+        .faq-row strong {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            color: var(--color-text);
+        }
+
+        .faq-row p {
+            margin: 0;
+            font-size: 0.88rem;
+            line-height: 1.65;
+        }
+
         @media (max-width: 768px) {
             .lead-card { padding: 1.5rem; }
+            .first-visit-grid { grid-template-columns: 1fr; }
         }
     </style>
     <!-- Microsoft Clarity -->
@@ -299,7 +353,7 @@
                     <h3>Your Checklist Is Ready</h3>
                     <p><a href="/downloads/fire-compliance-checklist.html" target="_blank" style="font-weight: 700; color: var(--color-primary); font-size: 1rem;">Open the Checklist &rarr;</a></p>
                     <p style="margin-top: 0.5rem; color: var(--color-text-light); font-size: 0.85rem;">Use your browser&rsquo;s Print &rarr; &ldquo;Save as PDF&rdquo; to download it.</p>
-                    <p style="margin-top: 1rem;">Need an inspection sooner? <a href="tel:+447770871782" style="font-weight: 600;">Call us on +44 7770 871782</a></p>
+                    <p style="margin-top: 1rem;">Need an inspection sooner? <a href="/#contact" style="font-weight: 600;">Leave a message for a call-back</a></p>
                 </div>
             </div>
         </div>
@@ -322,13 +376,90 @@
                     <li><strong>Documentation:</strong> Fire risk assessment current, inspection records filed, remedial actions logged and tracked</li>
                 </ul>
 
+                <h4>What We Check on a First Visit</h4>
+                <p>If you book us for a full inspection, we carry out a methodical first visit and record pass/fail findings with photos. This includes:</p>
+                <div class="first-visit-grid">
+                    <div class="first-visit-card">
+                        <h5>1) Certification and Door Identity</h5>
+                        <ul>
+                            <li>Certification label or plug present and legible</li>
+                            <li>Correct fire rating for door location</li>
+                            <li>Door reference/asset ID captured for reporting</li>
+                        </ul>
+                    </div>
+                    <div class="first-visit-card">
+                        <h5>2) Door Measurements</h5>
+                        <ul>
+                            <li>Leaf width, height, and thickness measured</li>
+                            <li>Perimeter gap checks around the frame</li>
+                            <li>Threshold gap checked against smoke/fire requirements</li>
+                        </ul>
+                    </div>
+                    <div class="first-visit-card">
+                        <h5>3) Leaf and Frame Condition</h5>
+                        <ul>
+                            <li>Damage to leaf faces and edges noted</li>
+                            <li>Frame movement, splits, and poor fixings identified</li>
+                            <li>Glazing and bead condition checked where fitted</li>
+                        </ul>
+                    </div>
+                    <div class="first-visit-card">
+                        <h5>4) Operation and Closing Performance</h5>
+                        <ul>
+                            <li>Door opens freely without binding</li>
+                            <li>Self-closer performance from multiple opening angles</li>
+                            <li>Final latch engagement and full closure verified</li>
+                        </ul>
+                    </div>
+                    <div class="first-visit-card">
+                        <h5>5) Components and Hardware</h5>
+                        <ul>
+                            <li>Hinges (count, condition, fire-rated suitability)</li>
+                            <li>Intumescent strips and cold smoke seals</li>
+                            <li>Drop-down seals, locks, latch, and ironmongery condition</li>
+                        </ul>
+                    </div>
+                    <div class="first-visit-card">
+                        <h5>6) Compliance Signage and Surrounding Risk</h5>
+                        <ul>
+                            <li>Required fire door signs present and legible</li>
+                            <li>Unapproved hold-open devices/wedges identified</li>
+                            <li>Immediate life-safety defects prioritised in report</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>FAQ: What Exactly Do You Check?</h4>
+                <div class="faq-list">
+                    <div class="faq-row">
+                        <strong>Do you measure every fire door?</strong>
+                        <p>Yes. We measure key dimensions and critical gaps for each inspected door to identify non-compliance quickly and consistently.</p>
+                    </div>
+                    <div class="faq-row">
+                        <strong>Do you check both the door and the frame?</strong>
+                        <p>Yes. A compliant leaf can still fail if the frame, fixings, or gap tolerances are wrong, so both are assessed together.</p>
+                    </div>
+                    <div class="faq-row">
+                        <strong>Are components like hinges, intumescent strips, and drop-down seals included?</strong>
+                        <p>Yes. We assess hinges, seals, closers, latches, and other fire/smoke control components as part of the same inspection.</p>
+                    </div>
+                    <div class="faq-row">
+                        <strong>Do you test how the door operates?</strong>
+                        <p>Yes. We check swing, closing action, and latch engagement to confirm the door performs as a fire-resisting doorset in use.</p>
+                    </div>
+                    <div class="faq-row">
+                        <strong>Will we get clear actions after the visit?</strong>
+                        <p>Yes. Your report groups defects by severity and gives a practical remedial priority list, so your team knows what to fix first.</p>
+                    </div>
+                </div>
+
                 <h4>Who Is This For?</h4>
                 <p>The checklist is designed for building managers, facilities managers, housing association officers, property managers, and any &ldquo;responsible person&rdquo; under the Fire Safety Order. It&rsquo;s particularly useful as a pre-inspection preparation tool or a monthly walk-round guide.</p>
 
                 <h4>Need Professional Support?</h4>
                 <p>If your checklist reveals issues &mdash; or if you&rsquo;d rather have a qualified inspector carry out a full survey &mdash; we&rsquo;re happy to talk through your fire door compliance requirements. No obligation, no pressure.</p>
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-                    <a href="tel:+447770871782" class="btn btn-primary">Book a Call-Back</a>
+                    <a href="/#contact" class="btn btn-primary">Book a Call-Back</a>
                     <a href="/#contact" class="btn btn-outline">Drop Us a Line</a>
                 </div>
             </div>
@@ -373,7 +504,7 @@
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="mailto:info@defirecompliance.co.uk">info@defirecompliance.co.uk</a></li>
-                        <li><a href="tel:+447770871782">+44 7770 871782</a></li>
+                        <li><a href="/#contact">Request a Call-Back</a></li>
                         <li>Bucks, South East &amp; London</li>
                     </ul>
                 </div>
@@ -432,7 +563,7 @@
             .catch(function () {
                 gateBtn.textContent = 'Download the Checklist';
                 gateBtn.disabled = false;
-                alert('Something went wrong. Please try again or call us on +44 7770 871782.');
+                alert('Something went wrong. Please try again or leave a message for a call-back.');
             });
         });
     })();
