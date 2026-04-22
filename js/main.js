@@ -22,6 +22,12 @@ window.addEventListener('load', function () {
 });
 // Also catch DOMContentLoaded for early scroll
 document.addEventListener('DOMContentLoaded', function () {
+
+    function trackGaEvent(eventName, params) {
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', eventName, params || {});
+        }
+    }
     window.scrollTo(0, 0);
 });
 
@@ -209,6 +215,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 return res.json();
             })
             .then(function () {
+                trackGaEvent('enquiry_submit', {
+                    source_page: window.location.pathname,
+                    service_type: payload.service || 'general-enquiry'
+                });
+
                 contactForm.innerHTML =
                     '<div class="form-success">' +
                     '<h3>Enquiry Received</h3>' +
@@ -219,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .catch(function () {
                 submitBtn.textContent = 'Send Enquiry';
                 submitBtn.disabled = false;
-                formError.textContent = 'Something went wrong. Please try again or call us on +44 7770 871782.';
+                formError.textContent = 'Something went wrong. Please try again or leave a message for a call-back.';
                 formError.style.display = 'block';
             });
         });

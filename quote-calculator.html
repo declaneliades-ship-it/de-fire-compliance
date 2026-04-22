@@ -27,8 +27,7 @@
         "@type": "LocalBusiness",
         "name": "DE Fire Compliance",
         "url": "https://defirecompliance.co.uk",
-        "telephone": "+447770871782"
-      }
+              }
     }
     </script>
 
@@ -410,7 +409,7 @@
                 <!-- Outside coverage -->
                 <div class="calc-result-outside" id="calcOutside">
                     <p style="font-size: 0.95rem; margin-bottom: 0.75rem;"><strong>We may be able to cover this location.</strong></p>
-                    <p style="color: var(--color-text-light); font-size: 0.88rem;">Please call us on <a href="tel:+447770871782" style="font-weight: 600;">+44 7770 871782</a> or <a href="mailto:info@defirecompliance.co.uk">email us</a> to discuss.</p>
+                    <p style="color: var(--color-text-light); font-size: 0.88rem;">Please leave your details for a call-back via the contact form, or <a href="mailto:info@defirecompliance.co.uk">email us</a> to discuss.</p>
                 </div>
 
                 <!-- Lead capture -->
@@ -527,7 +526,7 @@
             <p style="font-size: 0.95rem; opacity: 0.9; margin-bottom: var(--space-lg); line-height: 1.7;">No waiting on hold, no sales pitch. Request a callback and we&rsquo;ll call you at a time that suits to discuss your building and compliance requirements.</p>
             <div style="display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap;">
                 <a href="#leadCapture" class="btn btn-lg" style="background: var(--color-white); color: #047857; border-color: var(--color-white);">Request a Callback &uarr;</a>
-                <a href="tel:+447770871782" class="btn btn-lg" style="background: transparent; color: var(--color-white); border: 2px solid rgba(255,255,255,0.4);">Call +44 7770 871782</a>
+                <a href="/#contact" class="btn btn-lg" style="background: transparent; color: var(--color-white); border: 2px solid rgba(255,255,255,0.4);">Request a Call-Back</a>
             </div>
         </div>
     </section>
@@ -571,7 +570,7 @@
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="mailto:info@defirecompliance.co.uk">info@defirecompliance.co.uk</a></li>
-                        <li><a href="tel:+447770871782">+44 7770 871782</a></li>
+                        <li><a href="/#contact">Request a Call-Back</a></li>
                         <li>Bucks, South East &amp; London</li>
                     </ul>
                 </div>
@@ -596,6 +595,12 @@
     (function () {
         var calcBtn = document.getElementById('calcBtn');
         var leadBtn = document.getElementById('leadBtn');
+
+        function trackGaEvent(eventName, params) {
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', eventName, params || {});
+            }
+        }
 
         calcBtn.addEventListener('click', function () {
             var doors = parseInt(document.getElementById('doorCount').value, 10);
@@ -659,6 +664,13 @@
             resultEl.classList.add('visible');
             leadEl.classList.add('visible');
 
+            trackGaEvent('quote_calculator_result', {
+                source_page: '/quote-calculator',
+                doors_count: doors,
+                property_type: propertyType,
+                location: location
+            });
+
             // Scroll to result
             resultEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
@@ -720,6 +732,20 @@
                 return res.json();
             })
             .then(function () {
+                trackGaEvent('quote_lead_submit', {
+                    source_page: '/quote-calculator',
+                    doors_count: parseInt(payload.doors, 10) || 0,
+                    callback_requested: callbackChecked ? 'yes' : 'no',
+                    site_visit_requested: siteVisitChecked ? 'yes' : 'no'
+                });
+
+                if (callbackChecked) {
+                    trackGaEvent('callback_request_submit', {
+                        source_page: '/quote-calculator',
+                        request_stage: 'lead-form'
+                    });
+                }
+
                 document.getElementById('leadForm').style.display = 'none';
                 document.getElementById('leadSuccess').classList.add('visible');
                 // Show appropriate post-submit state
@@ -732,7 +758,7 @@
             .catch(function () {
                 leadBtn.textContent = 'Email Me My Quote \u2192';
                 leadBtn.disabled = false;
-                alert('Something went wrong. Please try again or call us on +44 7770 871782.');
+                alert('Something went wrong. Please try again or leave a message for a call-back.');
             });
         });
 
@@ -794,6 +820,11 @@
                         message: 'Post-submit callback request. Estimated price: ' + (document.getElementById('resultPrice').textContent || 'N/A')
                     })
                 }).finally(function () {
+                    trackGaEvent('callback_request_submit', {
+                        source_page: '/quote-calculator',
+                        request_stage: 'post-submit'
+                    });
+
                     document.getElementById('postCallbackForm').style.display = 'none';
                     document.getElementById('postCallbackConfirm').style.display = 'block';
                 });
