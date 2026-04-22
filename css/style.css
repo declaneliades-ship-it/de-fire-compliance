@@ -215,7 +215,7 @@ a:hover { color: var(--color-accent-light); }
 }
 .logo:hover { color: var(--color-white); opacity: 0.9; }
 
-.logo-img { height: 36px; width: auto; }
+.logo-img { height: 46px; width: auto; display: block; }
 
 .logo-mark {
     font-size: 1.1rem;
