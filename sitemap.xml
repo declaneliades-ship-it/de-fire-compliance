@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://defirecompliance.co.uk/</loc>
-    <lastmod>2025-06-01</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
@@ -47,12 +47,12 @@
   </url>
   <url>
     <loc>https://defirecompliance.co.uk/quote-calculator</loc>
-    <lastmod>2025-04-11</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://defirecompliance.co.uk/fire-compliance-checklist</loc>
-    <lastmod>2025-04-11</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -113,6 +113,26 @@
   <url>
     <loc>https://defirecompliance.co.uk/blog/building-safety-act-fire-doors</loc>
     <lastmod>2026-04-17</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://defirecompliance.co.uk/blog/fire-door-gap-tolerances-uk</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://defirecompliance.co.uk/blog/fire-door-inspections-care-homes</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://defirecompliance.co.uk/blog/intumescent-strips-fire-doors</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://defirecompliance.co.uk/blog/fire-door-compliance-facilities-managers</loc>
+    <lastmod>2026-04-22</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
