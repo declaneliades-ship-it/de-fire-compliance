@@ -619,6 +619,7 @@ a:hover { color: var(--color-accent-light); }
 .why-us-icon {
     font-size: 2rem;
     margin-bottom: var(--space-sm);
+    line-height: 1;
 }
 
 .why-us-item h3 {
@@ -1737,10 +1738,22 @@ a:hover { color: var(--color-accent-light); }
     margin-bottom: 1rem;
 }
 .report-preview-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
     font-weight: 700;
     font-size: 0.85rem;
     color: var(--color-primary);
     margin-bottom: 0.2rem;
+}
+.report-preview-logo-img {
+    height: 26px;
+    width: auto;
+}
+.report-preview-logo-text {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-primary);
 }
 .report-preview-title {
     font-family: var(--font-heading);
